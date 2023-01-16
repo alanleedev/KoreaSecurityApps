@@ -18,7 +18,21 @@
 이것을 설치하도록 유도하는 은행에서는 이것을 통해 보안을 향상한다고 주장한다. 하지만 사용자들은 이것을 [악성 소프트웨어 (malware) 혹은 키로거(keylogger) 라고 부른다](https://www.reddit.com/r/korea/comments/9qwucv/comment/e8ch6yn/). 시간을 투자해 이 제품의 내부 동작을 분석해보니 사실 후자의 주장이 진실에 더 가깝다. 애플리케이션에는 키로깅 기능이 설계되어 있지만 외부에서 이 기능을 접근하는 것을 제대로 막고 있지 못하다. 추가적으로 간단한 서비스 거부부터 원격 코드 실행까지 여러 버그들도 존재한다. 모두 포함해서 7가지 제품의 보안 취약점에 대해서 신고하였다.
 
 #### 목차
-...
+
+-   [배경](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#%EB%B0%B0%EA%B2%BD)
+-   [TouchEn nxKey는 실제 어떻게 동작하는가?](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#touchen-nxkey%EB%8A%94-%EC%8B%A4%EC%A0%9C-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94%EA%B0%80)
+-   [웹사이트는 어떻게 TouchEn nxKey와 통신하는가?](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-touchen-nxkey%EC%99%80-%ED%86%B5%EC%8B%A0%ED%95%98%EB%8A%94%EA%B0%80)
+-   [TouchEn 확장 기능을 악용하여 은행 웹사이트 공격하기](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#touchen-%ED%99%95%EC%9E%A5-%EA%B8%B0%EB%8A%A5%EC%9D%84-%EC%95%85%EC%9A%A9%ED%95%98%EC%97%AC-%EC%9D%80%ED%96%89-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EA%B3%B5%EA%B2%A9%ED%95%98%EA%B8%B0)
+    -   [Side-note: TouchEn과 유사한 브라우저 확장기능](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#side-note-touchen%EA%B3%BC-%EC%9C%A0%EC%82%AC%ED%95%9C-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%ED%99%95%EC%9E%A5%EA%B8%B0%EB%8A%A5)
+-   [웹사이트에서 키로깅 기능 사용하기](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%97%90%EC%84%9C-%ED%82%A4%EB%A1%9C%EA%B9%85-%EA%B8%B0%EB%8A%A5-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+-   [애플리케이션 자체를 공격하기](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%9E%90%EC%B2%B4%EB%A5%BC-%EA%B3%B5%EA%B2%A9%ED%95%98%EA%B8%B0)
+-   [도우미 (helper) 애플리케이션 악용하기](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#%EB%8F%84%EC%9A%B0%EB%AF%B8-helper-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%95%85%EC%9A%A9%ED%95%98%EA%B8%B0)
+-   [드라이버의 키로깅 기능을 직접 접근하기](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%ED%82%A4%EB%A1%9C%EA%B9%85-%EA%B8%B0%EB%8A%A5%EC%9D%84-%EC%A7%81%EC%A0%91-%EC%A0%91%EA%B7%BC%ED%95%98%EA%B8%B0)
+    -   [Side-note: 드라이버가 죽다 (crash)](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#side-note-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EA%B0%80-%EC%A3%BD%EB%8B%A4-crash)
+-   [과연 문제가 수정될까?](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#%EA%B3%BC%EC%97%B0-%EB%AC%B8%EC%A0%9C%EA%B0%80-%EC%88%98%EC%A0%95%EB%90%A0%EA%B9%8C)
+    -   [Side-note: 정보 누수 (information leak)](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#side-note-%EC%A0%95%EB%B3%B4-%EB%88%84%EC%88%98-information-leak)
+-   [nxKey에 적용된 개념이 제대로 동작할까?](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md#nxkey%EC%97%90-%EC%A0%81%EC%9A%A9%EB%90%9C-%EA%B0%9C%EB%85%90%EC%9D%B4-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EB%8F%99%EC%9E%91%ED%95%A0%EA%B9%8C)
+
 
 ## 배경
 
