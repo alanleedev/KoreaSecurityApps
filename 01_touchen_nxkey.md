@@ -1,14 +1,12 @@
 # TouchEn nxKey: 키로깅 방지를 위해 키로깅하는 솔루션
 
-
-
 ```
-이 글은 영문으로 된 [TouchEn nxKey: The keylogging anti-keylogger solution0](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/)을 저자의 허락을 받고 한국어로 번역할 글이다. 
+이 글은 영문으로 된 원을 저자의 허락을 받고 한국어로 번역할 글이다. 
 번역 오류 및 잘 못된 내용 수정은 Pull Request를 작성 바란다.
 ```
  
-원글 작성일: 2023-01-09
-번역글 작성일: 2023-01-15
+- 원글 작성일: 2023-01-09 [TouchEn nxKey: The keylogging anti-keylogger solution0](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/)
+- 번역글 작성일: 2023-01-15
  
 일주일 전에 [한국에서 필수설치를 해야하는 소위 보안 프로그램이라 불리는 것](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/)에 대해 글을 썼다. 이 여정은 라온시큐어에서 만든 TouchEn nxKey부터 관심을 갖게되면서 시작되었다. 그 이유는 이 브라우저 확장기능을 천만명이 넘게 사용하고 있어서이다. 사실 크롬 웹 스토어에서 보여주는 최대수치가 천만이지만 대한민국에서 사용하는 대다수의 컴퓨터에 설치되기 때문에 실제 사용자수는 훨씬 더 많을 것으로 추정된다.
 
