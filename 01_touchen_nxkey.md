@@ -131,7 +131,7 @@ if(typeof window[cbfunction] == 'function')
 어떤 사람이 무언가를 하기 위해 매우 나쁜 방식 (사실 위험하다는 뜻)의 설계를 하였다. 그리고 나서 `eval()`을 사용하지 않고도 기능 구현이 가능한 것을 깨달았거나 누군가 그것을 지적한 것처럼 추정된다. 하지만 나쁜 코드를 삭제하는 대신에 혹시 몰라서 코멘트에 살려두었다. 솔직히 이것은 자바스크립트, 보안, 버전관리에 대해 제대로 된 이해가 부족하다고 객인적으로 해석된다. 나라면 코드를 작성한 사람에게 감독없이 보안 소프트웨어를 만들지 못하도록 할 것이다.
 
 
-어찌되었던 위험한 `eval()` 호출은 이미 브라우저 확장 기능에서 제거되었다.  하지만 은행 웹사이트에서 사용하는 nxKey SDK의 자바스크리트에서 완전히 제거되지 않았고 아직 큰문제가 발생하지는 않았다. 이렇게 낮은 품질의 코드를 보면 다른 문제들도 더 많을 것으로 예상된다.
+어찌되었던 위험한 `eval()` 호출은 이미 브라우저 확장 기능에서 제거되었다. 하지만 은행 웹사이트에서 사용하는 nxKey SDK의 자바스크리트에서 완전히 제거되지 않았고 아직 큰문제가 발생하지는 않았다. 이렇게 낮은 품질의 코드를 보면 다른 문제들도 더 많을 것으로 예상된다.
 
 
 역시 유사한 문제를 콜백처리 방식에서도 발견하였다. 웹사이트에서 이벤트 등록을 위해 애플리케이션에게 `setcallback` 요청을 호출할 수 있는데 애플리케이션은 확장기능에 해당 페이지에 등록된 콜백을 호출할 수 있도록 지시한다. 간단히 말하면 해당 페이지에 있는 어떤 글로벌 함수도 이름으로 호출 할 수 있다.
@@ -359,7 +359,7 @@ else
 }
 ```
 
-nxKey 애플리케이션이 사용자 권한으로 실행되므로  대부분 셋업에서  `CKAgentNXE.exe`를 실행하게 될 것이다. 그리고 도우미 애플리케이션이 명령어 코드 2를 받으면 [SendInput()](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendinput)를 호출한다.
+nxKey 애플리케이션이 사용자 권한으로 실행되므로 대부분 셋업에서  `CKAgentNXE.exe`를 실행하게 될 것이다. 그리고 도우미 애플리케이션이 명령어 코드 2를 받으면 [SendInput()](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendinput)를 호출한다.
 
 
 왜 이런 동작을 하는지 이해하는데는 시간이 좀 필요했다. nxKey나 `CKAgentNXE.exe` 나 동일한 권한으로 실행되고 있는데 왜 직접`SendInput()`를 호출하지 않는가? 왜 이렇게 우회하는게 필요한가?
@@ -374,7 +374,7 @@ TouchEn이 인터넷 익스플로러 상 액티브 X로 실행될 때 integrity 
 인터넷 익스플로러 밖에서는 이런 방식이 말도 안되지만 TouchEn nxKey는 작업을 `CKAgentNXE.exe`에게 위임한다. 이것은 보안에 부정적인 결과를 가져온다.
 
 
-integrity level이 Low인  상태로 실행되는 악성 소프트웨어가 있다고 치자. 아마도 브라우저의 취약점을 이용해서 설치가 됐을 것이지만 샌드박스에 갖혀있다. 이것이 무엇을 할 수 있을까? `CKAgentNXE.exe`이 실행되기만을 기다리면 제약을 벗어날 수 있다.
+integrity level이 Low인 상태로 실행되는 악성 소프트웨어가 있다고 치자. 아마도 브라우저의 취약점을 이용해서 설치가 됐을 것이지만 샌드박스에 갖혀있다. 이것이 무엇을 할 수 있을까? `CKAgentNXE.exe`이 실행되기만을 기다리면 제약을 벗어날 수 있다.
 
 
 내 PoC 애플리케이션이 `CKAgentNXE.exe`에게 가짜 키보드 입력을 생성하도록 요청했다. 윈도우키 그리고 C, M, D 그리고 엔터키. 이것으로 Middle integrity level(디폴트 값)로 동작하는 커멘트라인 프롬트가 열렸다. 진짜 악성 프로그램이면 임의 명력을 쳐서 샌드박스 외부에서 코드가 실행이 가능하다.
@@ -389,7 +389,7 @@ integrity level이 Low인  상태로 실행되는 악성 소프트웨어가 있�
 ![AhnLab Safe Transaction 애플리케이션이 C:\Temp\test.exe 다음에 감염되었다고 경고한다 Malware/Win.RealProtect-LS.C5210489](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/antivirus_warning.png)
 
 
-악성 소프트웨어 작성자는 아마도 어떤 방법으로 이 경고가 발생하는지 알아내서 우회방법을 찾을 수 있을 것 이다. 아니면 웹 소켓 연결을 시작해 `CKAgentNXE.exe`이 실제 은행 웹사이트가  동작하 듯 안랩 애플리케이션이 시작하지 않도록 할지도 모른다. 하지만 왜 그렇게 번거롭게 할 필요가 있을까? 경고 메시지일 뿐이고 공격을 능동적으로 막지는 않는다. 사용자가 악성 소프트웨어 제거 버튼을 누르면 때는 이미 늦었다. 공격은 이미 성공했다.
+악성 소프트웨어 작성자는 아마도 어떤 방법으로 이 경고가 발생하는지 알아내서 우회방법을 찾을 수 있을 것 이다. 아니면 웹 소켓 연결을 시작해 `CKAgentNXE.exe`이 실제 은행 웹사이트가 동작하 듯 안랩 애플리케이션이 시작하지 않도록 할지도 모른다. 하지만 왜 그렇게 번거롭게 할 필요가 있을까? 경고 메시지일 뿐이고 공격을 능동적으로 막지는 않는다. 사용자가 악성 소프트웨어 제거 버튼을 누르면 때는 이미 늦었다. 공격은 이미 성공했다.
 
 
 ## 드라이버의 키로깅 기능을 직접 접근하기
@@ -405,9 +405,6 @@ integrity level이 Low인  상태로 실행되는 악성 소프트웨어가 있�
 무슨 생각으로 이렇게 만든지 잘 모르겠다. `TKAppm.dll`은 드라이버 통신을 하는 라이브러리로 Themida를 통해서 난독화(obfuscation)를 한다. Themida를 만든 업체는 다음과 같이 약속한다:
 
 > Themida® 는 SecureEngine® 보호기술을 사용하며 최상위 레벨로 실행될 때 이전에 보지 못한 보호 기법을 사용해서 고난위도 소프트웨어 크래킹으로부터 보호한다.
-
-
-Maybe nxKey developers thought that this would offer sufficient protection against reverse engineering. Yet connecting a debugger at runtime allows saving already decrypted `TKAppm.dll` memory and load the result into Ghidra for analysis.
 
 
 어쩌면 nxKey 개발자들은 이것으로 충분히 리버스 엔지니리어링 막을 수 있다고 생각했을지 모르겠다. 하지만 런타임시 디버거를 연결하면 이미 해독된 (decrypted) `TKAppm.dll` 메모리를 저장할 수 있으면 그 결과를 분석을 위해 Ghidra에서 로딩할 수 있다.
@@ -428,7 +425,7 @@ Maybe nxKey developers thought that this would offer sufficient protection again
 ### Side-note: 드라이버가 죽다 (crash)
 
 
-커널 드라이버 개발 시 알아야 할 점이 하나 있다.:드라이버가 죽으면 시스템 전체가 죽는다. 그래서 드라이버 오류가 발생하지 않도록 추가적인 확인이 필요하다.
+커널 드라이버 개발 시 알아야 할 점이 하나 있다: 드라이버가 죽으면 시스템 전체가 죽는다. 그래서 드라이버 오류가 발생하지 않도록 추가적인 확인이 필요하다.
 
 
 nxKey가 사용하는 드라이버에 오류가 발생할 수 있을까? 아주 자세히 살펴보지는 않았지만 우연히 그럴 수 있다는 것을 발견했다. 애플리케이션은  [DeviceIoControl()](https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol) 를 사용해서 입력 버퍼의 포인터를 달라고 요청한다. 드라이버는 이 포인터 생성을 위해 [MmMapLockedPagesSpecifyCache()](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-mmmaplockedpagesspecifycache)를 호출한다.
@@ -440,7 +437,7 @@ nxKey가 사용하는 드라이버에 오류가 발생할 수 있을까? 아주 
 이 것을 루프로 20초 정도 시도하니 가상 메모리가 다 소진되어 버려 `MmMapLockedPagesSpecifyCache()` 이 NULL을 리턴한다. 드라이버는 리턴 값을 확인하지 않고 죽어버린다. 빵~ 이제 OS가 자동으로 다시 리부팅을 한다.
 
 
-이 문제를 가지고 취약점으로 이용해 공격하는 것은 가능해 보이지는 않는다 (첨언: 나는 바이너리  공격에 관해서는 전문가가 아니다) 하지만 쾌쾌한 문제점이긴 하다.
+이 문제를 가지고 취약점으로 이용해 공격하는 것은 가능해 보이지는 않는다 (첨언: 나는 바이너리 공격에 관해서는 전문가가 아니다) 하지만 쾌쾌한 문제점이긴 하다.
 
 
 ## 과연 문제가 수정될까?
@@ -502,14 +499,14 @@ TouchEn nxKey관련 어려 취약점들을 살펴보았다. 키로거를 방지�
 
 nxKey가 어떤 보안 기능을 제공하든 공격자가 nxKey와 그 기능에 대해서 모르고 있는 것에 의존하고 있다. 일반적인 공격은 막을 수 있을지 모르겠지만 한국의 은행이나 정부기관를 목표로 하는 공격을 막는데는 그다지 효과적이지 않을 것 같다.
 
-위의 4개의 레벨 중에서 2번은 _어쩌면_ 고칠 수 있는 가능성이 있어 보인다. `CrossEXService.exe` 가 관리자 권한으로 실행되도록 만들 수 있다.  그렇게 되면 악성 소프트웨어가 이 프로세스를 조작려는 시도를 막을 수 있다. 하지만 이것은 악성 소프트웨어가 사용자의 브라우저에 접근 할 수 없다는 가정하에 유효하다.
+위의 4개의 레벨 중에서 2번은 _어쩌면_ 고칠 수 있는 가능성이 있어 보인다. `CrossEXService.exe` 가 관리자 권한으로 실행되도록 만들 수 있다. 그렇게 되면 악성 소프트웨어가 이 프로세스를 조작려는 시도를 막을 수 있다. 하지만 이것은 악성 소프트웨어가 사용자의 브라우저에 접근 할 수 없다는 가정하에 유효하다.
 
 
 현재 제품의 동작방식이 다른 레벨에서 동작하는 악성 소프트웨어를 효과적으로 막을 수 없어 보인다.
 
 ------
 역자 추가 - 원글에 대한 댓글/토론이 있는 웹사이트:
-- 원글 Hacker News: https://www.reddit.com/r/korea/comments/107bpsm/touchen_nxkey_the_keylogging_antikeylogger/
+- 원글 Hacker News: https://news.ycombinator.com/item?id=34307602
 - 원글 Reddit: https://www.reddit.com/r/korea/comments/107bpsm/touchen_nxkey_the_keylogging_antikeylogger/
 - 원글 긱뉴스: https://news.hada.io/topic?id=8211
 
