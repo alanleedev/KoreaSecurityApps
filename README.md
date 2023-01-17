@@ -2,7 +2,7 @@
 
 이 리포는 [Wladimir Palant](https://palant.info/about/)라는 Adblock Plus개발자가 본인의 보안관련 블로그에 한국 금융권에서 사용되는 보안 소프투웨어의 취약점을 공개한 글의 번역 글의 모음이다. 
 
-원저가가 [South Korea's Online Security Dead End](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/)글에 작성한 앞으로 공개하기로 한 글의 목록은 다음과 같다.
+원저자가 [South Korea's Online Security Dead End](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/)글에 작성한 앞으로 공개하기로 한 글의 목록은 다음과 같다.
 
 ## Schedule of future disclosures
 When I report security issues vendors generally get 90 days to fix them. Once that deadline is over I disclose my research. If you are interested in reading the disclosures, you can subscribe to the RSS feed of this blog. Alternatively, you could also check my blog on the scheduled disclosure dates:
