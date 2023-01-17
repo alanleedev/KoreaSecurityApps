@@ -13,3 +13,8 @@ When I report security issues vendors generally get 90 days to fix them. Once th
 - 2023-03-06 (March 6th)
 
 이 시리즈의 [도입글](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/)로 작성한 글에 대해서는 김우진 님의 번역글을 [여기](https://www.woojinkim.org/wiki/spaces/me/pages/733085820/South+Korea+s+online+security+dead+end)서 볼 수 있다.
+
+---
+번역 및 내용 수정에 도움을 주신 분들:
+[@MerHS](https://github.com/MerHS)
+[@DaeHyeoNi](https://github.com/DaeHyeoNi)
