@@ -1,26 +1,27 @@
 # TouchEn nxKey: 키로깅 방지를 위해 키로깅하는 솔루션
 
 ```
-이 글은 영문으로 된 원문을 저자의 허락을 받고 한국어로 번역한 글입니다.. 
+이 글은 영문으로 된 원문을 저자의 허락을 받고 한국어로 번역한 글입니다..
 번역 오류 및 잘못된 내용에 대한 수정은 Pull Request를 부탁드려요.
 다음 글도 번역에 참여하실 분은 코멘트 남겨주세요 (혼자 다 하려니 쉽지 않네요 ^^)
 ```
 
 ###### 번역관련 정보
-- 아래 글 번역에 참여한 이: 
+- 아래 글 번역에 참여한 이:
 [@alanleedev](https://github.com/alanleedev)
 [@MerHS](https://github.com/MerHS)
+[@KENNYSOFT](https://github.com/KENNYSOFT)
 
 - 원글 작성일: 2023-01-09 [TouchEn nxKey: The keylogging anti-keylogger solution0](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/)
 - 번역글 최초 작성일: 2023-01-15 (PR통해 계속 업데이트 중)
 
 ------
-일주일 전에 [한국에서 필수설치를 해야하는 소위 보안 프로그램이라 불리는 것](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/)에 대해 글을 썼다. 이 여정은 라온시큐어에서 만든 TouchEn nxKey부터 관심을 갖게되면서 시작되었고, 이 브라우저 확장기능을 천만명이 넘게 사용하고 있어서이다. 사실 크롬 웹 스토어에서 보여주는 다운로드 수는 최대 천만이지만, 대한민국에서 사용되는 대다수의 컴퓨터에 설치되기 때문에 실제 사용자 수는 훨씬 더 많을 것으로 추정된다.
+일주일 전에 [한국에서 필수설치를 해야하는 소위 보안 프로그램이라 불리는 것](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/)에 대해 글을 썼다. 이 여정은 라온시큐어에서 만든 TouchEn nxKey부터 관심을 갖게되면서 시작되었고, 이 브라우저 확장기능을 천만 명이 넘게 사용하고 있어서이다. 사실 크롬 웹 스토어에서 보여주는 다운로드 수는 최대 천만이지만, 대한민국에서 사용되는 대다수의 컴퓨터에 설치되기 때문에 실제 사용자 수는 훨씬 더 많을 것으로 추정된다.
 
 이렇게나 사용자가 많은 것은 사람들이 이 플러그인을 너무 좋아해서가 아니며, 실제로 평이 매우 안 좋아 별점 5점 만점에 평균 1.3점을 받았고 많은 사용자들이 플러그인을 없애버리라고 요청하고 있다. 하지만 한국에서 온라인 뱅킹 등을 하려면 해당 플러그인의 사용이 필수적이다.
 
 
-TouchEn nxKey를 설치하도록 유도하는 은행에서는 이 플러그인을 통해 보안을 향상한다고 주장한다. 하지만 사용자들은 이것을 [악성 소프트웨어 (malware) 혹은 키로거(keylogger) 라고 부른다](https://www.reddit.com/r/korea/comments/9qwucv/comment/e8ch6yn/). 시간을 투자해 이 제품의 내부 동작을 분석해보니 사실 후자의 주장이 진실에 더 가까웠다. 애플리케이션에는 키로깅 기능이 설계되어 있지만 외부에서 이 기능을 접근하는 것을 제대로 막고 있지 않다. 거기에 더헤 간단한 서비스 거부부터 원격 코드 실행을 비롯한 여러 버그들도 산재한다. 이를 모두 포함하여 나는 7가지 보안 취약점에 대해 신고하였다.
+TouchEn nxKey를 설치하도록 유도하는 은행에서는 이 플러그인을 통해 보안을 향상한다고 주장한다. 하지만 사용자들은 이것을 [악성 소프트웨어 (malware) 혹은 키로거(keylogger) 라고 부른다](https://www.reddit.com/r/korea/comments/9qwucv/comment/e8ch6yn/). 시간을 투자해 이 제품의 내부 동작을 분석해보니 사실 후자의 주장이 진실에 더 가까웠다. 애플리케이션에는 키로깅 기능이 설계되어 있지만 외부에서 이 기능에 접근하는 것을 제대로 막고 있지 않다. 거기에 더헤 간단한 서비스 거부부터 원격 코드 실행을 비롯한 여러 버그도 산재한다. 이를 모두 포함하여 나는 7가지 보안 취약점에 대해 신고하였다.
 
 #### 목차
 
@@ -42,10 +43,10 @@ TouchEn nxKey를 설치하도록 유도하는 은행에서는 이 플러그인�
 ## 배경
 
 
-[한국의 현재 상황에 대해서 요약한 글](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/)을 쓴 후 다양한 한국 웹사이트에서 내 글에 대해서 토론하기 시작하였다. [특히 댓글 하나](https://www.clien.net/service/board/news/17827726?c=true#140131396)에서 내가 놓쳤던 꽤 중요한 정보를 발견하였는데 2005년에 한국외환은행에서 발생했던 해킹 사건이었다 [[1]](https://news.kbs.co.kr/news/view.do?ncd=735696) [[2]](https://news.kbs.co.kr/news/view.do?ncd=735697). 이 기사는 기술적인 내용에 대해서 자세히 서술하지 않았지만 이 사건에 대해 내가 이해한 바를 설명하도록 하겠다.
+[한국의 현재 상황에 대해서 요약한 글](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/)을 쓴 후 다양한 한국 웹사이트에서 내 글에 관해서 토론하기 시작하였다. [특히 댓글 하나](https://www.clien.net/service/board/news/17827726?c=true#140131396)에서 내가 놓쳤던 꽤 중요한 정보를 발견하였는데 2005년에 한국외환은행에서 발생했던 해킹 사건이었다 [[1]](https://news.kbs.co.kr/news/view.do?ncd=735696) [[2]](https://news.kbs.co.kr/news/view.do?ncd=735697). 이 기사는 기술적인 내용에 대해서 자세히 서술하지 않았지만, 이 사건에 대해 내가 이해한 바를 설명하도록 하겠다.
 
 
-해당 사건은 2005년 당시의 한국에선 매우 중요했던 것으로 보인다. 사이버 범죄집단이 5000만원 (당시 약 5만 달러)을 고객의 은행계좌에서 원격 접속 트로전([Remote Access Trojan](https://www.malwarebytes.com/blog/threats/remote-access-trojan-rat))을 사용해서 빼돌렸고, 이를 통해 고객의 계정 정보뿐만 아니라 보안카드에 대한 정보도 같이 얻었다. 내가 알기로는 보안카드는 유럽연합 (EU)에서 2차 인증절차로 사용하던 indexed TAN과 유사하며, 유럽연합에서는 2012년에 정확히 같은 이유로 트로전을 통해 쉽게 뚫리기 때문에 폐기되었다.
+해당 사건은 2005년 당시의 한국에선 매우 중요했던 것으로 보인다. 사이버 범죄집단이 5000만원 (당시 약 5만 달러)을 고객의 은행 계좌에서 원격 접속 트로전([Remote Access Trojan](https://www.malwarebytes.com/blog/threats/remote-access-trojan-rat))을 사용해서 빼돌렸고, 이를 통해 고객의 계정 정보뿐만 아니라 보안카드에 대한 정보도 같이 얻었다. 내가 알기로는 보안카드는 유럽연합 (EU)에서 2차 인증 절차로 사용하던 indexed TAN과 유사하며, 유럽연합에서는 2012년에 정확히 같은 이유로 트로전을 통해 쉽게 뚫리기 때문에 폐기되었다.
 
 
 어떤 경로를 통해 고객의 컴퓨터가 악성 프로그램에 감염이 되었을까? 설명에 따르면, 브라우저의 보안 취약점을 공략하는 악성 웹사이트에 방문했을 때에 감염이 되는 드라이브 바이 다운로드([drive-by download](https://en.wikipedia.org/wiki/Drive-by_download))가 사용된 것으로 보인다. 아니면 사용자가 직접 애플리케이션을 설치하도록 속였을 수도 있다. 사용된 브라우저의 이름은 명시되어 있지 않지만 인터넷 익스플로러일 것이 뻔하다. 당시 한국에서 다른 브라우저는 거의 사용되지 않았기 때문이다.
@@ -90,22 +91,22 @@ TouchEn nxKey에 의존하는 웹사이트는 nxKey SDK를 사용하는데, 이�
 ## 웹사이트는 어떻게 TouchEn nxKey와 통신하는가?
 
 
-웹사이트는 어떻게 특정 애플리케이션이 컴퓨터에 설치가 되어 있는지 알 수 있을까? 그리고 어떻게 그것과 통신을 하는 것일까?
+웹사이트는 어떻게 특정 애플리케이션이 컴퓨터에 설치가 되어 있는지 알 수 있을까? 그리고 어떻게 그것과 통신하는 것일까?
 
 
-이와 관련되서는 패러다임(역자 주: 구현 혹은 동작방식)의 변화가 일어나고 있는 것처럼 보인다. 원래 TouchEn nxKey는 자체 브라우적 확장기능을 설치하는 것이 필수였다. 브라우저 확장 기능이 웹사이트의 요청 내용을 [native messaging](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging) 을 사용해서 전달 하였다. 
+이와 관련되어서는 패러다임(역자 주: 구현 혹은 동작 방식)의 변화가 일어나고 있는 것처럼 보인다. 원래 TouchEn nxKey는 자체 브라우적 확장기능을 설치하는 것이 필수였다. 브라우저 확장 기능이 웹사이트의 요청 내용을 [native messaging](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging) 을 사용해서 전달하였다.
 
 
 하지만 브라우저 확장기능을 사용하는 것은 더 이상 최신 방식이 아니다. 현재 방식은 웹사이트가 웹소켓 API ([WebSockets API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API))를 사용해 애플리케이션과 직접 통신하는 것이다. 더 이상 브라우저 확장 기능이 필요하지 않다.
 
 
-[busanbank.co.kr 웹시아트는 touchenex_nativecall()을 사용해서 TouchEn 브라우저 확장기능과 통신하는 것으로 보인다. 이 확장 기능은 Native Messaging을 통하여 CrossEXChrome이라는 애플리케이션과 통신한다. 다른 한편으로 citibank.co.kr 웹사이트는 웹소켓 주소127.0.0.1:34581을 사용해 CrossEXService 애플리케이션과 직접 통신한다. ](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/website_communication.png)
+[busanbank.co.kr 웹사이트는 touchenex_nativecall()을 사용해서 TouchEn 브라우저 확장기능과 통신하는 것으로 보인다. 이 확장 기능은 Native Messaging을 통하여 CrossEXChrome이라는 애플리케이션과 통신한다. 다른 한편으로 citibank.co.kr 웹사이트는 웹소켓 주소127.0.0.1:34581을 사용해 CrossEXService 애플리케이션과 직접 통신한다. ](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/website_communication.png)
 
 
-이런 동작방식의 변화가 언제 발생했는지 모르겠지만 아직 완성과는 거리가 멀다. 한국 씨티은행 같은 경우 웹소켓을 사용한 방식만을 취하고 있지만 부산은행과 같은 다른 웹사이트는 아직 브라우저 확장 기능만을 사용하는 옛방식을 유지하고 있다.
+이런 동작 방식의 변화가 언제 발생했는지 모르겠지만 아직 완성과는 거리가 멀다. 한국 씨티은행 같은 경우 웹소켓을 사용한 방식만을 취하고 있지만 부산은행과 같은 다른 웹사이트는 아직 브라우저 확장 기능만을 사용하는 옛 방식을 유지하고 있다.
 
 
-이것은 사용자가 여전히 브라우저 확장 기능을 설치해야한다는 것만을 의미하지 않고 소프트웨어에 대한 잦은 불만에 대해서 전혀 대응하지 않고 있다는 의미도 된다. 여기 사용자들은 웹소켓 통신을 지원하지 않는 옛날 버전의 소프트웨어를 사용하고 있다. 자동업데이트 기능도 없다. 일부 은행은 옛날 버전을 다운로드 하게 하고 있는데 나도 처음에 잘 모르고 옛날 버전을 다운로드하였다.
+이것은 사용자가 여전히 브라우저 확장 기능을 설치해야 한다는 것만을 의미하지 않고 소프트웨어에 대한 잦은 불만에 대해서 전혀 대응하지 않고 있다는 의미도 된다. 여기 사용자들은 웹소켓 통신을 지원하지 않는 옛날 버전의 소프트웨어를 사용하고 있다. 자동업데이트 기능도 없다. 일부 은행은 옛날 버전을 다운로드 하게 하고 있는데 나도 처음에 잘 모르고 옛날 버전을 다운로드하였다.
 
 
 ## TouchEn 확장 기능을 악용하여 은행 웹사이트 공격하기
@@ -128,7 +129,7 @@ if(typeof window[cbfunction] == 'function')
 ```
 
 
-어떤 사람이 무언가를 하기 위해 매우 나쁜 방식 (사실 위험하다는 뜻)의 설계를 하였다. 그리고 나서 `eval()`을 사용하지 않고도 기능 구현이 가능한 것을 깨달았거나 누군가 그것을 지적한 것처럼 추정된다. 하지만 나쁜 코드를 삭제하는 대신에 혹시 몰라서 코멘트에 살려두었다. 솔직히 이것은 자바스크립트, 보안, 버전관리에 대해 제대로 된 이해가 부족하다고 객인적으로 해석된다. 나라면 코드를 작성한 사람에게 감독없이 보안 소프트웨어를 만들지 못하도록 할 것이다.
+어떤 사람이 무언가를 하기 위해 매우 나쁜 방식 (사실 위험하다는 뜻)의 설계를 하였다. 그리고 나서 `eval()`을 사용하지 않고도 기능 구현이 가능한 것을 깨달았거나 누군가 그것을 지적한 것처럼 추정된다. 하지만 나쁜 코드를 삭제하는 대신에 혹시 몰라서 코멘트에 살려두었다. 솔직히 이것은 자바스크립트, 보안, 버전관리에 대해 제대로 된 이해가 부족하다고 개인적으로 해석된다. 나라면 코드를 작성한 사람에게 감독없이 보안 소프트웨어를 만들지 못하도록 할 것이다.
 
 
 어찌되었던 위험한 `eval()` 호출은 이미 브라우저 확장 기능에서 제거되었다.  하지만 은행 웹사이트에서 사용하는 nxKey SDK의 자바스크리트에서 완전히 제거되지 않았고 아직 큰문제가 발생하지는 않았다. 이렇게 낮은 품질의 코드를 보면 다른 문제들도 더 많을 것으로 예상된다.
@@ -183,7 +184,7 @@ if (tabid == "")
 이것으로 다음과 같은 공격이 가능할 수 있다:
 1.  은행웹사이트를 새 탭에서 연다. 그럼 그것이 활성화된 탭이 된다.
 2.  해당 페이지가 로딩되도록 기다린다 `id="setcallback"` 앨리먼트가 존재할 수 있도록.
-3.  TouchEn 확장기능을 통해 `setcallback` 메시지를 보내어 어떤 함수를 콜백으로 등록하면서 동시에 다음과 같은 JSON 요소인 `"tabid":""` 와 `"reply":"malicious payload"`를 덮어쓴다. 
+3.  TouchEn 확장기능을 통해 `setcallback` 메시지를 보내어 어떤 함수를 콜백으로 등록하면서 동시에 다음과 같은 JSON 요소인 `"tabid":""` 와 `"reply":"malicious payload"`를 덮어쓴다.
 
 
 첫번째 콜백 호출은 즉시 일어난다. 그렇게되면 은행 웹사이트가 콜백 함수를 호출하면서 파라미터로 악성 응답에 포함된 `reply` 요소를 파라미터로 사용한다.
@@ -201,7 +202,7 @@ if (tabid == "")
 공격이 성공하기위해 jQuery가 있어야 한다는 가정은 비현실적일까? 그렇지 않다. TouchEn nxKey를 사용하는 웹사이트는 TouchEn Transkey (화상 키보드)도 같이 사용할 가능성이 높고 이 기능은 jQuery를 사용하고 있다. 전반적으로 대한민국 은행 사이트들은 jQuery에 대한 의존도가 높아 보이는데 이것은 [좋지 않다 (bad idea)](https://palant.info/2020/03/02/psa-jquery-is-bad-for-the-security-of-your-project/).
 
 
-하지만 nxKey SDK에서 사용하는 지정된 콜백인 `update_callback`을 통해 JSON 문자열로 변환된 임의의 자바스크립트 코드를 실행하도록 악용할 수 있다. 다음을 호출할 경우  `update_callback('{"FaqMove":"javascript:alert(\'Hi, this is JavaScript code running on \'+document.domain)"}')`,  `javascript:` 링크로 리다이렉트 시도를 할 것이면 부수효과로 임의의 코드를 실행할 수 있다. 
+하지만 nxKey SDK에서 사용하는 지정된 콜백인 `update_callback`을 통해 JSON 문자열로 변환된 임의의 자바스크립트 코드를 실행하도록 악용할 수 있다. 다음을 호출할 경우  `update_callback('{"FaqMove":"javascript:alert(\'Hi, this is JavaScript code running on \'+document.domain)"}')`,  `javascript:` 링크로 리다이렉트 시도를 할 것이면 부수효과로 임의의 코드를 실행할 수 있다.
 
 ![gbank.busanbank.co.kr says: Hi, this is JavaScript code running on busanbank.co.kr](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/xss2.png)
 
@@ -274,7 +275,7 @@ socket.send(JSON.stringify({
 
 ## 애플리케이션 자체를 공격하기
 
-앞에서 살펴본바로는 이 제품의 자바스크립트 코드를 쓴 사람이 언어를 능숙히 다루지는 못한 것 같다. 어쩌면 작성자의 전문분야가 C++ 이라면?  우린 이런 문제를 [전에도 본적이 있다](https://palant.info/2018/11/30/maximizing-password-manager-attack-surface-leaning-from-kaspersky/). 개발자가 가능한 빨리 자바스크립트를 벗어나서 모든 동작을 C++코드로 위임하려는 것을.
+앞에서 살펴본 바로는 이 제품의 자바스크립트 코드를 쓴 사람이 언어를 능숙히 다루지는 못한 것 같다. 어쩌면 작성자의 전문분야가 C++ 이라면?  우린 이런 문제를 [전에도 본적이 있다](https://palant.info/2018/11/30/maximizing-password-manager-attack-surface-leaning-from-kaspersky/). 개발자가 가능한 빨리 자바스크립트를 벗어나서 모든 동작을 C++코드로 위임하려는 것을.
 
 
 아쉽게도 이건 내가 확인할 수 없는 추측일 뿐이다. 난 바이너리 코드보다는 자바스크립트를 분석하는게 훨씬 익숙하다. 하지만 애플리케이션 자체도 유사한 문제들이 많아 보인다. 사실 C++ 보다는 C에서 많이 사용하는 기법들을 사용한다. 그래서 수동으로 메모리관리를 하는 부분이 많다.
@@ -321,7 +322,7 @@ size_t base64_decode(char *input, size_t input_len, char **result)
 대신의 내 PoC는 랜덤으로 생성된 라이센스 문자열을 nxKey 애플리케이션에게 보냈다. 이것 만으로도 애플리케이션을 몇 초만에 죽일 수 있었다. 디버거를 연결해보면 메모리 오류(corruption)의 명확한 증거들을 확인할 수 있었다. 애플리케이션이 죽은 이유는 가짜 주소에 읽기나 쓰기를 시도했기 때문이다. 어떤 경우에 이 메모리 주소는 내 웹사이트가 제공한 데이터에서 왔다. 그래서 분명히 충분한 기술과 열정이 있는 사람이라면 취약점을 이용해 원격 코드 실행을 할 수도 있다.
 
 
-현대 운영체제는 버퍼오버플로를 기반의 코드 실행 취약점을 악용하는 것을 더 어렵게 만든다. 하지만 관련 기능을 사용했을 때 그렇다는 이야기다. nxKey 개발자는 애플리케이션이 로딩하는 2개의 DLL에서 [Address space layout randomization](https://en.wikipedia.org/wiki/Address_space_layout_randomization)  기능을 껐다. 4개의 DLL에서는 [Data Execution Prevention](https://learn.microsoft.com/en-us/windows/win32/memory/data-execution-prevention) 기능을 껐다.
+현대 운영체제는 버퍼오버플로를 기반의 코드 실행 취약점을 악용하는 것을 더 어렵게 만든다. 하지만 관련 기능을 사용했을 때 그렇다는 이야기다. nxKey 개발자는 애플리케이션이 로딩하는 2개의 DLL에서 [Address space layout randomization](https://en.wikipedia.org/wiki/Address_space_layout_randomization) 기능을 껐다. 4개의 DLL에서는 [Data Execution Prevention](https://learn.microsoft.com/en-us/windows/win32/memory/data-execution-prevention) 기능을 껐다.
 
 
 ## 도우미 (helper) 애플리케이션 악용하기
@@ -395,7 +396,7 @@ integrity level이 Low인  상태로 실행되는 악성 소프트웨어가 있�
 ## 드라이버의 키로깅 기능을 직접 접근하기
 
 
-위에서 언급한 것처럼 TouchEn nxKey 애플리케이션 (드라이버에서 받는 키보드 입력을 암호화하는 녀석)은 
+위에서 언급한 것처럼 TouchEn nxKey 애플리케이션 (드라이버에서 받는 키보드 입력을 암호화하는 녀석)은
 사용자 권한으로 실행이 된다. 높은 권한으로 실행되는 것이 아니므로 특별한 권한이 있지 않다. 그렇다면 드라이버의 기능은 어떻게 제한할까?
 
 
@@ -410,7 +411,7 @@ integrity level이 Low인  상태로 실행되는 악성 소프트웨어가 있�
 Maybe nxKey developers thought that this would offer sufficient protection against reverse engineering. Yet connecting a debugger at runtime allows saving already decrypted `TKAppm.dll` memory and load the result into Ghidra for analysis.
 
 
-어쩌면 nxKey 개발자들은 이것으로 충분히 리버스 엔지니리어링 막을 수 있다고 생각했을지 모르겠다. 하지만 런타임시 디버거를 연결하면 이미 해독된 (decrypted) `TKAppm.dll` 메모리를 저장할 수 있으면 그 결과를 분석을 위해 Ghidra에서 로딩할 수 있다.
+어쩌면 nxKey 개발자들은 이것으로 충분히 리버스 엔지니리어링 막을 수 있다고 생각했을지 모르겠다. 하지만 런타임시 디버거를 연결하면 이미 해독된 (decrypted) `TKAppm.dll` 메모리를 저장할 수 있으며 그 결과를 분석을 위해 Ghidra에서 로딩할 수 있다.
 
 
 ![Message box titled TouchEn nxKey. The text says: Debugging Program is detected. Please Close Debugging Program and try again. TouchEn nxKey will not work with subsequent key. (If system is virtual PC, try real PC.)](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/debugging.png)
@@ -419,7 +420,7 @@ Maybe nxKey developers thought that this would offer sufficient protection again
 미안하지만 너무 늦었다. 내가 필요한 건 이미 가져갔다. 안전모드 부팅시 애플리케이션이 동작을 거부하는 것도 소용이 없다.
 
 
-어찌됐든 난 아주 작은 (70라인 미만) 애플리케이션을 만들어 드라이버에 연결할 수 있고 이것으로 시스템상의 모든 키보드 입력을 가로챌 수 있다. 
+어찌됐든 난 아주 작은 (70라인 미만) 애플리케이션을 만들어 드라이버에 연결할 수 있고 이것으로 시스템상의 모든 키보드 입력을 가로챌 수 있다.
 
 
 가장 좋은 점: 이 키로거는 nxKey 애플리케이션과 잘 연동이 된다. nxKey는 키보드 입력을 받아 암호화 하고 암호화된 데이터로 웹사이트로 보낸다. 그리고 내가 만든 작은 키로거도 동일한 키보드 입력을 평범한 텍스트 (clear text)로 받는다.
@@ -428,7 +429,7 @@ Maybe nxKey developers thought that this would offer sufficient protection again
 ### Side-note: 드라이버가 죽다 (crash)
 
 
-커널 드라이버 개발 시 알아야 할 점이 하나 있다.:드라이버가 죽으면 시스템 전체가 죽는다. 그래서 드라이버 오류가 발생하지 않도록 추가적인 확인이 필요하다.
+커널 드라이버 개발 시 알아야 할 점이 하나 있다: 드라이버가 죽으면 시스템 전체가 죽는다. 그래서 드라이버 오류가 발생하지 않도록 추가적인 확인이 필요하다.
 
 
 nxKey가 사용하는 드라이버에 오류가 발생할 수 있을까? 아주 자세히 살펴보지는 않았지만 우연히 그럴 수 있다는 것을 발견했다. 애플리케이션은  [DeviceIoControl()](https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol) 를 사용해서 입력 버퍼의 포인터를 달라고 요청한다. 드라이버는 이 포인터 생성을 위해 [MmMapLockedPagesSpecifyCache()](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-mmmaplockedpagesspecifycache)를 호출한다.
@@ -446,7 +447,7 @@ nxKey가 사용하는 드라이버에 오류가 발생할 수 있을까? 아주 
 ## 과연 문제가 수정될까?
 
 
-내가 일반적으로는 취약점을 공개할 땐 이미 문제가 수정된 후이다. 유감스럽게 이번은 그렇지 못하다. 내가 알 수 있는 범위에서는 한 문제도 수정이 되지 않았다. 업체가 언제 이 문제들을 고칠지도 모른다. 그리고 사용자에게 어떻게 업데이트를 전달할 지도 모른다. 특히 은행에서 가장 최신 버전에세 3 버전 이전 버전을 아직 배포하고 있다. 이것을 기억하라: 자동 업데이트 기능이 없다.
+내가 일반적으로는 취약점을 공개할 땐 이미 문제가 수정된 후이다. 유감스럽게 이번은 그렇지 못하다. 내가 알 수 있는 범위에서는 한 문제도 수정이 되지 않았다. 업체가 언제 이 문제들을 고칠지도 모른다. 그리고 사용자에게 어떻게 업데이트를 전달할 지도 모른다. 특히 은행에서 가장 최신 버전에서 3 버전 이전 버전을 아직 배포하고 있다. 이것을 기억하라: 자동 업데이트 기능이 없다.
 
 
 문제를 보고하는 것도 복잡했다. 라온시큐어가 보안 전문기업이지만 서울 전화번호 하나를 제외하고는 보안문제관련 공개된 연락처가 없다. 한국에 직접 전화해서 거기서 누가 영어를 하는지 물어볼 생각은 없다.
@@ -458,7 +459,7 @@ nxKey가 사용하는 드라이버에 오류가 발생할 수 있을까? 아주 
 내가 찾은 취약점 모두를 2022년 10월 4일에 KrCERT에 보고하였다. 그 외에도 라온시큐어 임원들에 직접 연락시도를 했지만 응답을 받지 못했다. 그래도 KrCERT에서 내 보고 내용을 라온시큐어에 전달했다고 대략 2주 후에 연락받았다. 그리고 라온시큐어에서 나에게 연락하기 위해서 내 이메일 주소를 물어봤다고 전해들었지만 연락을 받은 적이 없다.
 
 
-이것이 전부이다. 취약점 보고 후 90일 동안 비공개를 유지하는 데드라인은 이미 한 주전에 지났다. TouchEn nxKey 1.0.0.78은 2022년 10월 4일에 에 릴리즈가 되었고 같은 날에 보안 취약점에 대해서 보고하였다. 이 글을 쓰는 시점에서는 여전히 가장 최신 버전이며 여기 기술된 모든 취약점들이 여전히 존재한다. 
+이것이 전부이다. 취약점 보고 후 90일 동안 비공개를 유지하는 데드라인은 이미 한 주전에 지났다. TouchEn nxKey 1.0.0.78은 2022년 10월 4일에 릴리즈가 되었고 같은 날에 보안 취약점에 대해서 보고하였다. 이 글을 쓰는 시점에서는 여전히 가장 최신 버전이며 여기 기술된 모든 취약점들이 여전히 존재한다.
 
 **업데이트** (2023-01-10): 라온시큐어에서는 한국매체에 취약점을 수정하였다고 주장하였고 사용자에게 업데이트를 배포할 것이라고 언급하였다. 나는 현재 이 사실에 대해서는 확인할 수 없다. 그 회사의 다운로드 서버에서는 여전히 TouchEn nxKey 1.0.0.78을 배포하고 있다.
 
@@ -471,7 +472,7 @@ nxKey가 사용하는 드라이버에 오류가 발생할 수 있을까? 아주 
 이전에는 보고서에 파일을 직접 첨부했었다. 보안 소프트웨어 때문에 첨부파일이 삭제되거나 파괴되는 일이 종종 일어났다. 그 대신에 문제를 데모하는 데 필요한 파일은 내 서버에 업로드 한다. 내 서버로의 링크는 항상 동작한다. 추가적인 혜택: 나에게 연락하지 않는 업체들이라고 해도 PoC 파일을 접근한 것은 알 수 있다. 즉, 내 보고서가 누구에게 전달이 됐는지 확인 가능하다.
 
 
-며칠전에 TouchEn nxKeyr관련 파일의 접근 로그를 확인했다. 즉시 구글봇을 볼 수 있었다. 이 파일들이 구글 검색엔진에 색인되어 버렸다.
+며칠전에 TouchEn nxKey 관련 파일의 접근 로그를 확인했다. 즉시 구글봇을 볼 수 있었다. 이 파일들이 구글 검색엔진에 색인되어 버렸다.
 
 
 나는 무작위로 생성된 폴더 이름을 사용하기 때문에 그냥 알아 낼 수 없다. 나는 링크는 업체들과만 공유한다. 그렇다면 업체가 공격 소프트웨어에 링크를 어딘가 공개적으로 올렸을 것이다.
@@ -483,12 +484,12 @@ nxKey가 사용하는 드라이버에 오류가 발생할 수 있을까? 아주 
 구글봇의 첫번째 요청은 2022년 10월 17일이다. 그렇다면 90일간 제한 기간이 끝나기 2달 전부터 이미 구글 검색으로 취약점이 검색 가능했다고 봐야할 것이다. 이 파일들은 여러번 접근을 했었고 제품 개발자 만이 접근을 한 것인지는 알기 어렵다.
 
 
-이 문제를 보고 한 후 개발 서버는 공개 인터넷에서 바로 사라졌다. 하지만 민감한 보안 정보를 이렇게 경솔히 다루는 것은 전에 본 적이 없다.
+이 문제를 보고한 후 개발 서버는 공개 인터넷에서 바로 사라졌다. 하지만 민감한 보안 정보를 이렇게 경솔히 다루는 것은 전에 본 적이 없다.
 
 
 ## nxKey에 적용된 개념이 제대로 동작할까?
 
-TouchEn nxKey관련 어려 취약점들을 살펴보았다. 키로거를 방지하기위해 완벽한 키로킹 툴을 개발했지만 그것에 접근을 제한하는 것은 실패했다. 하지만 아이디어는 괜찮다, 그렇지 않은가? 만약 제대로 만들어졌다면 유용한 보안 도구가 될지도 모른다.
+TouchEn nxKey 관련 어려 취약점들을 살펴보았다. 키로거를 방지하기위해 완벽한 키로킹 툴을 개발했지만 그것에 접근을 제한하는 것은 실패했다. 하지만 아이디어는 괜찮다, 그렇지 않은가? 만약 제대로 만들어졌다면 유용한 보안 도구가 될지도 모른다.
 
 
 그렇다면 궁금한 것은, 지금 막고자하는 키로거는 어떤 레벨로 실행이 되는가? 내가 보기로는 4가지 옵션밖에 없다:
