@@ -506,3 +506,21 @@ nxKey가 어떤 보안 기능을 제공하든 공격자가 nxKey와 그 기능�
 
 
 현재 제품의 동작방식이 다른 레벨에서 동작하는 악성 소프트웨어를 효과적으로 막을 수 없어 보인다.
+
+------
+역자 추가 - 원글에 대한 댓글/토론이 있는 웹사이트:
+- 원글 Hacker News: https://www.reddit.com/r/korea/comments/107bpsm/touchen_nxkey_the_keylogging_antikeylogger/
+- 원글 Reddit: https://www.reddit.com/r/korea/comments/107bpsm/touchen_nxkey_the_keylogging_antikeylogger/
+- 원글 긱뉴스: https://news.hada.io/topic?id=8211
+
+- 루리웹 원문 요약: https://bbs.ruliweb.com/community/board/300143/read/59978508
+- 개드립 다른 한국어 번역: https://www.dogdrip.net/456327682
+- PGR21: https://www.pgr21.com/freedom/97663, https://www.pgr21.com/freedom/97695
+- 클리앙: https://www.clien.net/service/board/park/17839993
+
+- 번역글 긱뉴스: https://news.hada.io/topic?id=8274
+
+관련 기사:
+- 이뉴스투데이: http://www.enewstoday.co.kr/news/articleView.html?idxno=1630290
+- 매일경제: https://www.mk.co.kr/news/it/10599751
+- 연합뉴스: https://www.yna.co.kr/view/AKR20230110073700017
