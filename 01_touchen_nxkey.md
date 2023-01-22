@@ -39,7 +39,7 @@
 - [웹사이트에서 키로깅 기능 사용하기](#웹사이트에서-키로깅-기능-사용하기)
 - [애플리케이션 자체를 공격하기](#애플리케이션-자체를-공격하기)
 - [도우미 (helper) 애플리케이션 악용하기](#도우미-helper-애플리케이션-악용하기)
-- [드라이버의 키로깅 기능을 직접 접근하기](#드라이버의-키로깅-기능을-직접-접근하기)
+- [드라이버의 키로깅 기능에 직접 접근하기](#드라이버의-키로깅-기능에-직접-접근하기)
   - [Side-note: 드라이버가 죽다 (crash)](#side-note-드라이버가-죽다-crash)
 - [과연 문제가 수정될까?](#과연-문제가-수정될까)
   - [Side-note: 정보 누수 (information leak)](#side-note-정보-누수-information-leak)
@@ -127,7 +127,7 @@ if(typeof window[cbfunction] == 'function')
 
 두번째 장애물은 현재 브라우저 탭에서 로딩된 페이지(예를 들면 프레임 안에 로딩된 페이지)만 공격할 수 있다는 뜻이다. 만약에 nxKey 애플리케이션을 속여서 응답에 잘못된 `tabid` 값을 설정하지 않는다면 말이다.
 
-이 공격방식은 놀라울 정도로 쉬웠다. 애플리케이션은 제대로 된 JSON 파서를 사용해 입력되는 데이터를 처리하지만, 응답은 [sprintf_s()](https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/sprintf-s-sprintf-s-l-swprintf-s-swprintf-s-l)를 호출해서 생성한다. 이스케이프 처리 같은 건 전혀 없다. 그렇기 때문에 응답에 포함된 일부 속성(property)을 조작해서 따옴표를 추가하면 임의의 JSON 속성을 삽입할 수 있다.
+이 공격방식은 놀라울 정도로 쉬웠다. 애플리케이션은 제대로 된 JSON 파서를 사용해 입력되는 데이터를 처리하지만, 응답은 [`sprintf_s()`](https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/sprintf-s-sprintf-s-l-swprintf-s-swprintf-s-l)를 호출해서 생성한다. 이스케이프 처리 같은 건 전혀 없다. 그렇기 때문에 응답에 포함된 일부 속성(property)을 조작해서 따옴표를 추가하면 임의의 JSON 속성을 삽입할 수 있다.
 
 ```js
 touchenex_nativecall({
@@ -294,7 +294,7 @@ else
 }
 ```
 
-nxKey 애플리케이션은 사용자 권한으로 실행되므로, 거의 대부분의 경우 `CKAgentNXE.exe`를 실행하게 될 것이다. 그리고 그 도우미 애플리케이션은 명령 코드 2를 받으면 [SendInput()](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendinput)을 호출한다.
+nxKey 애플리케이션은 사용자 권한으로 실행되므로, 거의 대부분의 경우 `CKAgentNXE.exe`를 실행하게 될 것이다. 그리고 그 도우미 애플리케이션은 명령 코드 2를 받으면 [`SendInput()`](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendinput)을 호출한다.
 
 왜 이런 식으로 만들었는지 이해하는 데는 시간이 좀 필요했다. nxKey나 `CKAgentNXE.exe`나 똑같은 권한 수준으로 실행되고 있는데, 어째서 그냥 직접 `SendInput()`을 호출하지 않는가? 왜 이렇게 우회하는 게 필요한가?
 
@@ -318,37 +318,39 @@ TouchEn Key가 인터넷 익스플로러에서 ActiveX로 실행될 때는 낮�
 
 악성코드를 만드는 자는 어떻게 이 경고가 발생하는지 파악하여 우회할 수 있을 것이다. 아니면 웹소켓 연결을 통해 실제 은행 웹사이트에서와는 달리 안랩 애플리케이션이 실행되지 않는 상태에서 `CKAgentNXE.exe`를 실행시킬 수 있을지도 모른다. 하지만 그렇게 번거롭게 할 필요가 있을까? 이건 그냥 경고 메시지일 뿐이고, 공격을 능동적으로 막지는 않는다. 사용자가 악성코드 치료하기 버튼을 눌렀을 때는 이미 너무 늦었다. 공격은 이미 성공했다.
 
-## 드라이버의 키로깅 기능을 직접 접근하기
+## 드라이버의 키로깅 기능에 직접 접근하기
 
-위에서 언급한 것처럼 TouchEn nxKey 애플리케이션 (드라이버에서 받는 키보드 입력을 암호화하는 녀석)은 사용자 권한으로 실행이 된다. 높은 권한으로 실행되는 것이 아니므로 특별한 권한이 있지 않다. 그렇다면 드라이버의 기능은 어떻게 제한할까?
+위에서 언급한 것처럼 TouchEn nxKey 애플리케이션(드라이버에서 받는 키보드 입력을 암호화하는 녀석)은 사용자 권한으로 실행된다. 높은 권한으로 실행되는 것이 아니므로 특별한 권한이 없다. 그렇다면 드라이버의 기능에 대한 접근은 어떻게 제한할까?
 
-정답은 물론 하지 않는다 이다. 시스템 상 어떤 임의의 애플리케이션도 이 기능을 사용할 수 있다. 단지 nxKey가 드라이버와 어떻게 통신하는지만 알면 된다. 여러분이 궁금해 하겠지만 그 통신 프로토콜은 아주 복잡하지는 않다.
+정답은 물론 ‘하지 않는다’이다. 시스템의 어떤 애플리케이션도 이 기능에 접근할 수 있다. 그냥 nxKey가 드라이버와 어떻게 통신하는지만 알면 된다. 궁금해할 것 같아서 말해두자면, 그 통신 프로토콜은 그렇게 많이 복잡하지는 않다.
 
-무슨 생각으로 이렇게 만든지 잘 모르겠다. `TKAppm.dll`은 드라이버 통신을 하는 라이브러리로 Themida를 통해서 난독화(obfuscation)를 한다. Themida를 만든 업체는 다음과 같이 약속한다:
+대체 무슨 생각으로 이렇게 만든 것인지 잘 모르겠다. 드라이버와 통신할 때 쓰는 라이브러리인 `TKAppm.dll`은 Themida를 통해서 난독화(obfuscation)되어 있다. Themida를 만든 업체는 다음과 같이 약속한다.
 
-> Themida® 는 SecureEngine® 보호기술을 사용하며 최상위 레벨로 실행될 때 이전에 보지 못한 보호 기법을 사용해서 고난위도 소프트웨어 크래킹으로부터 보호한다.
+> Themida®는 SecureEngine® 보호 기술을 사용하여 가장 높은 권한으로 실행될 때 이전에 보지 못한 보호 기법을 구현하여 고도의 소프트웨어 크래킹으로부터 애플리케이션을 보호합니다.
 
-어쩌면 nxKey 개발자들은 이것으로 충분히 리버스 엔지니리어링 막을 수 있다고 생각했을지 모르겠다. 하지만 런타임시 디버거를 연결하면 이미 해독된 (decrypted) `TKAppm.dll` 메모리를 저장할 수 있으며 그 결과를 분석을 위해 Ghidra에서 로딩할 수 있다.
+어쩌면 nxKey 개발자들은 이것으로 충분히 리버스 엔지니어링을 막을 수 있다고 생각했을지도 모르겠다. 그러나 런타임에 디버거를 연결해 보니 메모리에 이미 난독화가 해제된(decrypted) `TKAppm.dll`이 올라와 있었기 때문에, 이걸 그대로 저장해서 Ghidra에 띄워 분석할 수 있었다.
 
-![Message box titled TouchEn nxKey. The text says: Debugging Program is detected. Please Close Debugging Program and try again. TouchEn nxKey will not work with subsequent key. (If system is virtual PC, try real PC.)](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/debugging.png)
+  (역주: [Ghidra](https://www.nsa.gov/ghidra)는 미국 NSA에서 개발하여 오픈소스로 공개한 것으로 유명한 소프트웨어 리버스 엔지니어링 도구 모음집입니다. 사이버 보안 분야에서 악성 코드나 소프트웨어 취약점을 분석하기 위해 쓰이고 있습니다.)
 
-미안하지만 너무 늦었다. 내가 필요한 건 이미 가져갔다. 안전모드 부팅시 애플리케이션이 동작을 거부하는 것도 소용이 없다.
+![TouchEn nxKey에서 띄운 메시지 창. 텍스트 내용: 디버거가 탐지되었습니다. 디버거를 종료하고 다시 시도해 주세요. TouchEn nxKey는 이후 키 입력에서 작동하지 않습니다. (만약 가상머신일 경우 실제 PC로 사용하시기 바랍니다.)](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/debugging.png)
 
-어찌됐든 난 아주 작은 (70라인 미만) 애플리케이션을 만들어 드라이버에 연결할 수 있고 이것으로 시스템상의 모든 키보드 입력을 가로챌 수 있다.
+미안하지만 너무 늦었다. 내가 필요한 건 이미 다 가져갔다. 그리고 안전 모드 부팅시 애플리케이션이 동작을 거부하는 것도 소용없다.
 
-가장 좋은 점: 이 키로거는 nxKey 애플리케이션과 잘 연동이 된다. nxKey는 키보드 입력을 받아 암호화 하고 암호화된 데이터로 웹사이트로 보낸다. 그리고 내가 만든 작은 키로거도 동일한 키보드 입력을 평범한 텍스트 (clear text)로 받는다.
+어쨌든 나는 이 드라이버에 연결하여 시스템의 모든 키보드 입력 내용을 가로챌 수 있는 아주 작은 (코드 70줄 미만) 애플리케이션을 만들 수 있었다. 관리자 권한도 필요 없이 사용자 권한만으로도 잘 작동했다. 그리고 앞서 봤던 웹페이지에서의 데모와는 달리, 이 앱은 입력 내용이 원래 목적지로도 전달되도록 할 수 있기 때문에 사용자는 아무것도 눈치챌 수 없다. 키로거 만들기가 이렇게 쉬울 수가 없다!
+
+가장 좋은 점은, 이 키로거가 nxKey 애플리케이션과 잘 연동된다는 점이다. 그래서 nxKey가 키보드 입력을 받아 암호화한 데이터를 웹사이트로 보낼 때, 내가 만든 작은 키로거는 동일한 키보드 입력 내용을 암호화되지 않은 평문으로 기록할 것이다.
 
 ### Side-note: 드라이버가 죽다 (crash)
 
-커널 드라이버 개발 시 알아야 할 점이 하나 있다: 드라이버가 죽으면 시스템 전체가 죽는다. 그래서 드라이버 오류가 발생하지 않도록 추가적인 확인이 필요하다.
+커널 드라이버를 개발할 때 알아야 할 점이 하나 있다. 드라이버가 죽으면 시스템 전체가 죽는다. 그래서 드라이버 코드에서는 절대로 오류가 발생하지 않도록 특히 꼼꼼한 확인이 필요하다.
 
-nxKey가 사용하는 드라이버에 오류가 발생할 수 있을까? 아주 자세히 살펴보지는 않았지만 우연히 그럴 수 있다는 것을 발견했다. 애플리케이션은  [DeviceIoControl()](https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol) 를 사용해서 입력 버퍼의 포인터를 달라고 요청한다. 드라이버는 이 포인터 생성을 위해 [MmMapLockedPagesSpecifyCache()](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-mmmaplockedpagesspecifycache)를 호출한다.
+nxKey가 사용하는 드라이버에서 오류가 발생할 수 있을까? 그렇게 자세히 살펴본 것은 아니지만, 우연히 그럴 수 있다는 것을 발견했다. 애플리케이션에서는 [`DeviceIoControl()`](https://learn.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol)을 사용해서 입력 버퍼의 포인터를 달라고 드라이버에게 요청한다. 그러면 드라이버는 이 포인터 생성을 위해 [`MmMapLockedPagesSpecifyCache()`](https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-mmmaplockedpagesspecifycache)를 호출한다.
 
-그렇다. 입력 버퍼는 시스템상 모든 애플리케이션이 볼 수 있다. 하지만 그것이 문제의 핵심은 아니다. 만약 애플리케이션이 포인터를 달라고 재요청하면 어떻게 될까? 드라이버는 단순히 `MmMapLockedPagesSpecifyCache()` 를 한 번 더 호출한다.
+그렇다. 이 입력 버퍼는 시스템의 모든 애플리케이션에서 다 볼 수 있다. 하지만 지금 말하고자 하는 건 그게 아니다. 만약 애플리케이션에서 한번 더 포인터를 달라고 요청하면 어떻게 될까? 드라이버에서는 단순히 `MmMapLockedPagesSpecifyCache()`를 한번 더 호출한다.
 
-이 것을 루프로 20초 정도 시도하니 가상 메모리가 다 소진되어 버려 `MmMapLockedPagesSpecifyCache()` 이 NULL을 리턴한다. 드라이버는 리턴 값을 확인하지 않고 죽어버린다. 빵~ 이제 OS가 자동으로 다시 리부팅을 한다.
+이걸 무한루프로 돌리자, 20초 정도 지난 시점에서 전체 가상 메모리 주소가 소진되어 `MmMapLockedPagesSpecifyCache()`가 `NULL`을 반환했다. 그러자 드라이버가 반환된 값을 확인하지 않았기 때문에 죽어버리고 말았다. 따라서 운영체제가 자동으로 재부팅되었다.
 
-이 문제를 가지고 취약점으로 이용해 공격하는 것은 가능해 보이지는 않는다 (첨언: 나는 바이너리 공격에 관해서는 전문가가 아니다) 하지만 쾌쾌한 문제점이긴 하다.
+내가 보기에 이 문제점을 악용하는 것은 가능한 것 같지는 않지만 (참고로 나는 바이너리 악용에 관한 전문가가 아니다) 그래도 아주 형편없는 문제점이다.
 
 ## 과연 문제가 수정될까?
 
