@@ -9,7 +9,7 @@
 > 보안 문제를 보고할 경우, 업체에서는 일반적으로 90일 동안 그 문제를 수정한다. 마감일이 지나고 나면, 나는 그 내용을 공개할 것이다. 만약 공개되는 내용에 관심이 있다면, 이 블로그의 RSS 피드를 구독하기 바란다. 아니면 다음과 같이 예정된 공개 날짜에 내 블로그를 확인하면 된다.
 >
 > - 2023-01-09: [TouchEn nxKey: 키로깅 방지를 위해 키로깅하는 솔루션](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md)
-> - 2023-01-25 **수정**: 한국의 명절 때문에 공개 날짜를 미루었다.
+> - 2023-01-25: [IPinside: 대한민국의 필수 설치 스파이웨어](https://github.com/alanleedev/KoreaSecurityApps/blob/main/02_ipinside_lws_agent.md)
 > - 2023-02-06
 > - 2023-03-06
 
