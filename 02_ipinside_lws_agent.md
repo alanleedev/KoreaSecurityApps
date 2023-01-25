@@ -18,7 +18,7 @@
 
 ---
 
-대한민국의 [소위 보안 애플리케이션이라 불리는 것들을 살펴보는 여정](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/) ([번역판](https://www.woojinkim.org/wiki/spaces/me/pages/733085820/South+Korea+s+online+security+dead+end))을 시작하며 이미 [TouchEn nxKey에 대해서 살펴보았는데](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md), 이 애플리케이션은 키로거를 막기 위해 ... _노트를 뒤적이며_ ... 키로킹을 더 쉽게 만들어 버렸다. 
+대한민국의 [소위 보안 애플리케이션이라 불리는 것들을 살펴보는 여정](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/) ([번역판](https://www.woojinkim.org/wiki/spaces/me/pages/733085820/South+Korea+s+online+security+dead+end))을 시작하며 이미 [TouchEn nxKey에 대해서 살펴보았는데](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md), 이 애플리케이션은 키로거를 막기 위해 ... _노트를 뒤적이며_ ... 키로깅을 더 쉽게 만들어 버렸다. 
 오늘은 대한민국에 거주하는 많은 사람들이 컴퓨터에 설치를 해야만하는 또 다른 애플리케이션을 조명해 보겠다.
 그것은 인터리젠 (Interezen) 에서 만든 IPinside LWS Agent 이다.
 
