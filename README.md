@@ -27,7 +27,7 @@
 - [@sh-cho](https://github.com/sh-cho)
 - [@kunggom](https://github.com/kunggom)
 
-## 번역에 참여하는 분을 위한 정보
+## 번역에 참여하는 분을 위한 정보 !!!
 
 ### 번역의 목표
 
