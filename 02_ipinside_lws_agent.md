@@ -1,5 +1,22 @@
 # IPinside: 대한민국의 필수 설치 스파이웨어
 
+* :kr: *번역상태*: 1차 검토/수정 중
+
+```
+이 글은 저자의 허락을 받아 영문으로 된 원문을 한국어로 번역한 글입니다.
+번역에 참여하실 분은 기존에 생성된 issue를 참조하시고 필요시 새 issue 등록 후 작업 바랍니다.
+```
+
+## 번역 관련 정보
+
+- 아래 글 번역에 참여한 이:
+  - [@alanleedev](https://github.com/alanleedev)
+  
+
+- 원본 문서: [IPinside: Korea’s mandatory spyware](https://palant.info/2023/01/25/ipinside-koreas-mandatory-spyware/) (2023-01-25)
+- 번역 문서 최초 작성일: 2023-01-25 (PR을 통해 계속 업데이트 중)
+
+---
 
 대한민국의 [소위 보안 애플리케이션이라 불리는 것들을 살펴보는 여정](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/) ([번역판](https://www.woojinkim.org/wiki/spaces/me/pages/733085820/South+Korea+s+online+security+dead+end))을 시작하며 이미 [TouchEn nxKey에 대해서 살펴보았는데](https://github.com/alanleedev/KoreaSecurityApps/blob/main/01_touchen_nxkey.md), 이 애플리케이션은 키로거를 막기 위해 ... _노트를 뒤적이며_ ... 키로킹을 더 쉽게 만들어 버렸다. 
 오늘은 대한민국에 거주하는 많은 사람들이 컴퓨터에 설치를 해야만하는 또 다른 애플리케이션을 조명해 보겠다.
