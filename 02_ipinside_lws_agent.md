@@ -55,7 +55,7 @@ TouchEn nxKey와 유사하게 IPinside LWS Agent 애플리케이션도 로컬 �
 ![주소 127.0.0.1:21300/?t=A&value= open 로 접속한 브라우저 창의 화면 캡쳐 . 응답은 jQuery 콜백으로 wdata, ndata 와 udata 필드를 포함한 여러 데이터와 base64 인코딩된 값들이다.](https://palant.info/temp/aW6mA9rC3oG5cF5d/request.png)
 
 
-이 데이터에서는 접속자의 IP주소를 담고 있지만 크기로 봤을 때 그것만을 포함한 것이 아니라는 사실이 뻔하다. 
+이 데이터는 당신의 IP를 포함하고 있을 것이다. 하지만 크기로 봤을 때, 그것만이 포함된 것이 아님은 분명하다.
 실제로 훨씬 더 많은 데이터가 전송된다.
 
 ## 어떤 데이터를 포함하는가?
