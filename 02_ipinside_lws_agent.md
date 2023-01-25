@@ -49,7 +49,7 @@ TouchEn nxKey와 유사하게 IPinside LWS Agent 애플리케이션도 로컬 �
 그러므로 대한민국에서 이 애플리케이션의 실행 여부는 선택의 여지가 없다.
 
 
-다른 한편으로, 이 애플리케이션이 실행되고 있다면 웹사이트는 `wdata`, `ndata` 와 `udata` 필드를 통해서 다양한 데이터를 받아 볼 수 있다. 사실 꽤 많은 데이터가 전송된다:
+한편, 이 애플리케이션이 실행되고 있다면 웹사이트는 `wdata`, `ndata` 와 `udata` 필드를 통해서 다양한 데이터를 받아 볼 수 있다. 사실 꽤 많은 데이터가 전송된다:
 
 
 ![주소 127.0.0.1:21300/?t=A&value= open 로 접속한 브라우저 창의 화면 캡쳐 . 응답은 jQuery 콜백으로 wdata, ndata 와 udata 필드를 포함한 여러 데이터와 base64 인코딩된 값들이다.](https://palant.info/temp/aW6mA9rC3oG5cF5d/request.png)
