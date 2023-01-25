@@ -38,7 +38,7 @@
 -   [이 데이터는 어떻게 보호하는가?](#이-데이터는-어떻게-보호하는가)
 -   [그러면 애플리케이션의 전반적인 보안은 어떨까?](#그러면-애플리케이션의-전반적인-보안은-어떨까)
 -   [언제 수정될까?](#언제-수정될까)
--   [과연 IPinside는 온라인 뱅킹을 더 안전하게 만들까?](#과연-IPinside는-온라인-뱅킹을-더-안전하게-만들까)
+-   [과연 IPinside는 온라인 뱅킹을 더 안전하게 만들까?](#과연-IPinside-는-온라인-뱅킹을-더-안전하게-만들까)
 
 ## 어떻게 동작할까?
 
@@ -349,14 +349,14 @@ handle_request(request);
 온라인에서 2009년에 작성된 [매뉴얼](https://www.swit.or.kr/GOODSW/gsauthen/downloadManualFile.do?SEQ_NO=61))을 찾았는데 인터리젠의 백엔드 솔루션의 화면 캡처를 볼 수 있다. 웹사이트에 접속하는 모든 방문자를 추적하는 한는 것을 알 수 있고 그들의 정보도 볼 수 있다. 2009년에는 IP주소 이외의 정보를 별로 수집하지 않았지만 백엔드의 현재 버전은 agent 애플리케이션이 수집하는 모든 정보를 보여준다고 추정할 수 있다.
 
 
-![특정날짜 번위의 목록을 요청하는 웹 인터페이스 스크린샷.  테이블의 행 중 일부는 date, webip, proxyip, natip, attackip 등 이다](https://palant.info/temp/aW6mA9rC3oG5cF5d/ipinside_backend1.png)
+![특정날짜 번위의 목록을 요청하는 웹 인터페이스 스크린샷.  테이블의 행 중 일부는 date, webip, proxyip, natip, attackip 등 이다](https://palant.info/temp/aW6mA9rC3oG5cF5d/ipinside_backend1.png)  
 IPinside 3.0 제품 설명서 화면 캡쳐
 
 
 이미 2009년도에 각 사용자에 대한 상세 정보를 보여주는 것 외에도 IP주소, 위치, 브라우저, 운영체제 등의 정보를 바탕으로 통계요약을 보여주는 것이 가능했다.
 
 
-![다음 운영체제에 대한 사용자 정보 통계를 보여주는 웹 인터페이스의 스크린 샷;  Windows 98, Windows 2000, Windows 2003 and Windows XP](https://palant.info/temp/aW6mA9rC3oG5cF5d/ipinside_backend2.png)
+![다음 운영체제에 대한 사용자 정보 통계를 보여주는 웹 인터페이스의 스크린 샷;  Windows 98, Windows 2000, Windows 2003 and Windows XP](https://palant.info/temp/aW6mA9rC3oG5cF5d/ipinside_backend2.png)  
 IPinside 3.0 제품 설명서 화면 캡쳐
 
 
