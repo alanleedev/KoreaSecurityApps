@@ -44,7 +44,7 @@
 
 
 TouchEn nxKey와 유사하게 IPinside LWS Agent 애플리케이션도 로컬 웹서버를 통해서 웹사이트와 통신을 한다.
-한국 은행 웹사이트가 접속자에 대한 정보를 더 얻기 위해 `localhost:21300`로 [JSONP 요청](https://en.wikipedia.org/wiki/JSONP)을 보낸다. 
+대한민국의 은행 웹사이트가 접속자에 대한 정보를 더 얻기 위해 `localhost:21300`로 [JSONP 요청](https://en.wikipedia.org/wiki/JSONP)을 보낸다. 
 이 요청이 실패하면, 은행 웹사이트는 접속을 거부하고 IPinside LWS Agent를 먼저 설치할 것을 요구한다.
 그러므로 한국에서 이 애플리케이션의 실행 여부는 선택의 여지가 없다.
 
