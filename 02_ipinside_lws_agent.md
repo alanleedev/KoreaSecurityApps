@@ -342,10 +342,10 @@ handle_request(request);
 인터리젠은 단순히 IPinside agent 애플리케이션만을 제공하는 것이 아니다. 그들이 직접 작성한 설명을 보면 빅 데이터 전문 기업이다. [데이터를 수집하고 분석하는](http://interezen.co.kr/izh6/2_product/iTracer.html) 서비스를 많은 은행, 보험사 그리고 정부기관에 제공하고 있다.
 
 
-![다음 제목의 웹사이트 섹션 스크린샷: “Client Companies. With the number one products in this industry, INTEREZEN is providing the best services for more than 200 client companies.” 그 아래는 우리은행, 산업은행, KEB 하나은행, 국세청,  the logos of Woori Bank, Industrial Bank of Korea, KEB Hana Card, National Tax Service, MG손해보험, 현대카드 로고 외에 "더보기" 버튼](https://palant.info/temp/aW6mA9rC3oG5cF5d/clients.png)
+![다음 제목의 웹사이트 섹션 스크린샷: “Client Companies. With the number one products in this industry, INTEREZEN is providing the best services for more than 200 client companies.” 그 아래는 우리은행, 산업은행, KEB 하나은행, 국세청, MG손해보험, 현대카드 로고 외에 "더보기" 버튼](https://palant.info/temp/aW6mA9rC3oG5cF5d/clients.png)
 
 
-온라인에서 2009년에 작성된 [매뉴얼](https://www.swit.or.kr/GOODSW/gsauthen/downloadManualFile.do?SEQ_NO=61))을 찾았는데 인터리젠의 백엔드 솔루션의 화면 캡처를 볼 수 있다. 웹사이트에 접속하는 모든 방문자를 추적하는 것을 알 수 있고 그들의 정보도 볼 수 있다. 2009년에는 IP주소 이외의 정보를 별로 수집하지 않았지만, 백엔드의 현재 버전은 agent 애플리케이션이 수집하는 모든 정보를 보여준다고 추정할 수 있다.
+온라인에서 2009년에 작성된 [매뉴얼](https://www.swit.or.kr/GOODSW/gsauthen/downloadManualFile.do?SEQ_NO=61)을 찾았는데 인터리젠의 백엔드 솔루션의 화면 캡처를 볼 수 있다. 웹사이트에 접속하는 모든 방문자를 추적하는 것을 알 수 있고 그들의 정보도 볼 수 있다. 2009년에는 IP주소 이외의 정보를 별로 수집하지 않았지만, 백엔드의 현재 버전은 agent 애플리케이션이 수집하는 모든 정보를 보여준다고 추정할 수 있다.
 
 
 ![특정날짜 번위의 목록을 요청하는 웹 인터페이스 스크린샷.  테이블의 행 중 일부는 date, webip, proxyip, natip, attackip 등 이다](https://palant.info/temp/aW6mA9rC3oG5cF5d/ipinside_backend1.png)  
