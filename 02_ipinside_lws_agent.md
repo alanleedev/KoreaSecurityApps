@@ -43,19 +43,19 @@
 ## 어떻게 동작할까?
 
 
-TouchEn nxKey와 유사하게 IPinside LWS Agent 애플리케이션도 로컬 서버를 통해서 웹사이트와 통신을 한다. 
-대한민국의 은행 웹사이트가 접속자에 대한 정보를 더 얻기 위해 `localhost:21300`로 [JSONP 요청](https://en.wikipedia.org/wiki/JSONP)을 보낸다. 
+TouchEn nxKey와 유사하게 IPinside LWS Agent 애플리케이션도 로컬 웹서버를 통해서 웹사이트와 통신을 한다.
+한국의 은행 웹사이트가 접속자에 대한 정보를 더 얻기 위해 `localhost:21300`로 [JSONP 요청](https://en.wikipedia.org/wiki/JSONP)을 보낸다.
 이 요청이 실패하면, 은행 웹사이트는 접속을 거부하고 IPinside LWS Agent를 먼저 설치할 것을 요구한다.
-그러므로 대한민국에서 이 애플리케이션의 실행 여부는 선택의 여지가 없다.
+그러므로 한국에서 이 애플리케이션의 실행 여부는 선택의 여지가 없다.
 
 
-다른 한편으로, 이 애플리케이션이 실행되고 있다면 웹사이트는 `wdata`, `ndata` 와 `udata` 필드를 통해서 다양한 데이터를 받아 볼 수 있다. 사실 꽤 많은 데이터가 전송된다:
+한편, 이 애플리케이션이 실행되고 있다면 웹사이트는 `wdata`, `ndata`와 `udata` 필드를 통해서 다양한 데이터를 받아 볼 수 있다. 사실 꽤 많은 데이터가 전송된다:
 
 
-![주소 127.0.0.1:21300/?t=A&value= open 로 접속한 브라우저 창의 화면 캡쳐 . 응답은 jQuery 콜백으로 wdata, ndata 와 udata 필드를 포함한 여러 데이터와 base64 인코딩된 값들이다.](https://palant.info/temp/aW6mA9rC3oG5cF5d/request.png)
+![127.0.0.1:21300/?t=A&value= 주소로 접속한 브라우저 창의 화면 캡쳐. 응답은 jQuery 콜백으로 wdata, ndata 와 udata 필드를 포함한 여러 데이터와 base64 인코딩된 값들이다.](https://palant.info/temp/aW6mA9rC3oG5cF5d/request.png)
 
 
-이 데이터에서는 접속자의 IP주소를 담고 있지만 크기로 봤을 때 그것만을 포함한 것이 아니라는 사실이 뻔하다. 
+이 데이터는 당신의 IP를 포함하고 있을 것이다. 하지만 크기로 봤을 때, 그것만이 포함된 것이 아님은 분명하다.
 실제로 훨씬 더 많은 데이터가 전송된다.
 
 ## 어떤 데이터를 포함하는가?
