@@ -401,19 +401,23 @@ TouchEn nxKey 애플리케이션에서 여러 가지 취약점을 살펴보았�
 
 ---
 
-역자 추가 - 원글에 대한 댓글/토론이 있는 웹사이트:
-- 원글 Hacker News: https://news.ycombinator.com/item?id=34307602
-- 원글 Reddit: https://www.reddit.com/r/korea/comments/107bpsm/touchen_nxkey_the_keylogging_antikeylogger/
-- 원글 긱뉴스: https://news.hada.io/topic?id=8211
+## 역자 추가 내용
 
-- 루리웹 원문 요약: https://bbs.ruliweb.com/community/board/300143/read/59978508
-- 개드립 다른 한국어 번역: https://www.dogdrip.net/456327682
-- PGR21: https://www.pgr21.com/freedom/97663, https://www.pgr21.com/freedom/97695
-- 클리앙: https://www.clien.net/service/board/park/17839993
+### 원글에 대한 댓글/토론이 있는 웹페이지
 
-- 번역글 긱뉴스: https://news.hada.io/topic?id=8274
+- 원글 Hacker News: [TouchEn nxKey: A keylogging anti-keylogger solution](https://news.ycombinator.com/item?id=34307602)
+- 원글 Reddit: [TouchEn nxKey: The keylogging anti-keylogger solution](https://www.reddit.com/r/korea/comments/107bpsm/touchen_nxkey_the_keylogging_antikeylogger/)
+- 원글 GeekNews: [TouchEn nxKey 취약점 분석](https://news.hada.io/topic?id=8211)
+- 번역글 GeekNews: [TouchEn nxKey: 키로깅 방지를 위해 키로깅하는 솔루션](https://news.hada.io/topic?id=8274)
+- 개드립 다른 한국어 번역: [(요약있음,강스압,번역) TouchEn nxKey 7개 보안 취약점 발견](https://www.dogdrip.net/456327682)
+- 루리웹 원문 요약: [장문) 한국 온라인 보안업체들의 민낯을 적나라하게 까발리고 있는 보안전문가](https://bbs.ruliweb.com/community/board/300143/read/59978508)
+- 클리앙: [TouchEn nxKey 보안 취약점 공개되었네요...](https://www.clien.net/service/board/park/17839993)
+- PGR21:
+  - [TouchEn nxKey 취약점 공개](https://www.pgr21.com/freedom/97663)
+  - [TouchEn nxKey 취약점 공개에 대한 개발사의 입장](https://www.pgr21.com/freedom/97695)
 
-관련 기사:
-- 이뉴스투데이: http://www.enewstoday.co.kr/news/articleView.html?idxno=1630290
-- 매일경제: https://www.mk.co.kr/news/it/10599751
-- 연합뉴스: https://www.yna.co.kr/view/AKR20230110073700017
+### 언론 보도 기사
+
+- 매일경제: [독일 개발자 “한국 은행 사이트, 매우 불편하고 위험해”](https://www.mk.co.kr/news/it/10599751)
+- 연합뉴스: [해외개발자, 국내 금융보안시스템 비판…"해킹 못막고 버그도"](https://www.yna.co.kr/view/AKR20230110073700017)
+- 이뉴스투데이: [‘취약점’ 저격 당한 국내 보안업계 “국내 환경 이해 부족”](http://www.enewstoday.co.kr/news/articleView.html?idxno=1630290)
