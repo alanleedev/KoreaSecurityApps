@@ -49,6 +49,10 @@
 
 [한국의 현재 상황에 대해서 요약한 글](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/)을 쓴 후, 다양한 한국 웹사이트에서 내 글에 관해서 토론하기 시작했다. [특히 댓글 하나](https://www.clien.net/service/board/news/17827726?c=true#140131396)에서 내가 놓쳤던 꽤 중요한 정보를 발견했는데, 2005년에 한국 외환은행에서 발생했던 해킹 사건이었다. [[1]](https://news.kbs.co.kr/news/view.do?ncd=735696) [[2]](https://news.kbs.co.kr/news/view.do?ncd=735697) 이 기사는 기술적인 내용에 대해서 자세히 서술하지 않았지만, 이 사건에 대해 내가 이해한 바를 설명하도록 하겠다.
 
+> 역주: 2005년 5월 10일, 외환은행에서 인터넷 뱅킹 해킹 사건이 발생했습니다. 범인은 4인조 일당으로, 재테크 관련 Daum 카페 게시물에 악성코드를 숨겨놓아 게시물을 클릭하면 NetDevil이라는 트로이 목마가 피해자의 PC에 설치되게끔 하였습니다. 그런 다음 해당 악성코드의 키로거 기능을 통해 피해자의 인터넷 뱅킹 인증용 정보를 탈취하여 계좌에서 5,000만 원을 빼돌렸습니다.
+> 처음에 해당 은행에서는 피해 보상을 거부했으나, 금융감독원 조사 결과 윈도우 95 및 98 환경에서는 은행에서 제공하는 “보안” 프로그램이 실행되고 있어도 해당 키로거를 막지 못한다는 점이 드러나자 결국 여론에 떠밀린 은행이 피해를 전액 보상했습니다. 이는 한국에서 사용자의 중대 과실이 없는 것으로 판정된 첫 번째 인터넷 뱅킹 해킹 사건이었습니다.
+> 그러나 정부와 금융권의 [후속 대책](https://m.boannews.com/html/detail.html?idx=79860)은 오히려 은행이 제공하는 “보안” 프로그램 사용을 의무화하는 식으로 흘러갔고, 이후 발생한 인터넷 뱅킹 해킹 사건의 피해자들은 도리어 아무런 보상도 받지 못하게 되었습니다.
+
 이 사건은 2005년 당시 한국에선 상당히 큰 사건이었던 것으로 보인다. 사이버 범죄조직이 원격 접속 트로이 목마([Remote Access Trojan](https://www.malwarebytes.com/blog/threats/remote-access-trojan-rat))를 사용해서 고객의 은행 계좌에서 5,000만원(당시 기준으로 약 5만 달러)을 빼돌렸다. 그들은 이 방법으로 고객의 로그인 정보뿐만 아니라 보안카드에 대한 정보도 같이 얻을 수 있었다. 내가 알기로 보안카드는 EU(유럽연합)에서 2차 인증 수단으로 사용하던 indexed TAN과 유사한데, EU에서는 트로이 목마를 통해 쉽게 뚫린다는 정확히 그 이유로 2012년에 폐기되었다.
 
 고객의 컴퓨터는 어떤 경로를 통해 악성 프로그램에 감염되었을까? 설명된 내용을 보면, 브라우저의 보안 취약점을 공략하는 악성 웹사이트에 방문했을 때 감염되는 드라이브 바이 다운로드([drive-by download](https://en.wikipedia.org/wiki/Drive-by_download)) 공격이 사용된 것으로 보인다. 아니면 사용자가 직접 어떤 프로그램을 설치하도록 속였을 수도 있다. 사용된 브라우저의 이름은 명시되어 있지 않지만, 인터넷 익스플로러일 것이 뻔하다. 당시 한국에서 다른 브라우저는 거의 사용되지 않았기 때문이다.
@@ -300,7 +304,7 @@ nxKey 애플리케이션은 사용자 권한으로 실행되므로, 대부분의
 
 그러다가 `CKAgentNXE.exe`가 IPC 객체의 보안 설명자(security descriptor) 설정을 바꾸어서 무결성 수준(integrity level)이 낮음(Low)인 프로세스의 접근을 허용하게끔 한다는 것을 알게 되었다. 또한 설치 프로그램이 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Low Rights\ElevationPolicy` 밑에 레지스트리 항목을 추가하여 `CKAgentNXE.exe`의 권한을 자동으로 높이게끔 한다는 것도 알게 되었다. 그제야 깨닫게 되었다. 이건 모두 인터넷 익스플로러의 샌드박스(sandbox) 때문이었다.
 
-  (역주: ‘integrity level’이라는 용어는 [Microsoft의 한국어 문서](https://learn.microsoft.com/ko-kr/windows/win32/secauthz/mandatory-integrity-control)에서는 “무결성 수준”으로 직역되어 있지만, [일부 자료](https://www.slideshare.net/hajimaru1/01windows-20150613)에서는 “신뢰도”라고 번역하는 경우도 있습니다. 개인적으로는 “신뢰도”라고 번역하는 쪽이 더 이해하기 쉽다고 생각하지만, 일단 Microsoft 문서의 번역을 추종하였습니다. 이하 다른 용어 또한 다른 이유가 없는 한 Windows 운영체제의 개발사인 Microsoft의 한국어 문서에 나오는 번역을 우선으로 선택합니다.)
+> 역주: ‘integrity level’이라는 용어는 [Microsoft의 한국어 문서](https://learn.microsoft.com/ko-kr/windows/win32/secauthz/mandatory-integrity-control)에서는 “무결성 수준”으로 직역되어 있지만, [일부 자료](https://www.slideshare.net/hajimaru1/01windows-20150613)에서는 “신뢰도”라고 번역하는 경우도 있습니다. 개인적으로는 “신뢰도”라고 번역하는 쪽이 더 이해하기 쉽다고 생각하지만, 일단 Microsoft 문서의 번역을 추종하였습니다. 이하 다른 용어 또한 다른 이유가 없는 한 Windows 운영체제의 개발사인 Microsoft의 한국어 문서에 나오는 번역을 우선으로 선택합니다.
 
 TouchEn Key가 인터넷 익스플로러에서 ActiveX로 실행될 때는 낮은 무결성 수준으로 실행된다. 이렇게 샌드박스 안에서 갇힌 채 실행될 때는 `SendInput()`을 호출하는 것이 불가능하다. 이 제한을 우회하기 위해 인터넷 익스플로러의 샌드박스에서 `CKAgentNXE.exe`를 실행하고 권한을 자동으로 높일 수 있게 한 것이다. 일단 도우미 애플리케이션이 실행되고 나면, 샌드박스 안에 있는 ActiveX에서 이것과 연결하여 무언가 하게끔 요청할 수 있다. 예를 들면 `SendInput()`을 호출한다던가.
 
@@ -330,7 +334,7 @@ TouchEn Key가 인터넷 익스플로러에서 ActiveX로 실행될 때는 낮�
 
 어쩌면 nxKey 개발자들은 이것으로 충분히 리버스 엔지니어링을 막을 수 있다고 생각했을지도 모르겠다. 그러나 런타임에 디버거를 연결해 보니 메모리에 이미 난독화가 해제된(decrypted) `TKAppm.dll`이 올라와 있었기 때문에, 이걸 그대로 저장해서 Ghidra에 띄워 분석할 수 있었다.
 
-  (역주: [Ghidra](https://www.nsa.gov/ghidra)는 미국 NSA에서 개발하여 오픈소스로 공개한 것으로 유명한 소프트웨어 리버스 엔지니어링 도구 모음집입니다. 사이버 보안 분야에서 악성 코드나 소프트웨어 취약점을 분석하기 위해 쓰이고 있습니다.)
+> 역주: [Ghidra](https://www.nsa.gov/ghidra)는 미국 정보기관인 NSA에서 개발하여 오픈소스로 공개한 것으로 유명한 소프트웨어 리버스 엔지니어링 도구 모음집입니다. 사이버 보안 분야에서 악성 코드나 소프트웨어 취약점을 분석하기 위해 쓰이고 있습니다.
 
 ![TouchEn nxKey에서 띄운 메시지 창. 텍스트 내용: 디버거가 탐지되었습니다. 디버거를 종료하고 다시 시도해 주세요. TouchEn nxKey는 이후 키 입력에서 작동하지 않습니다. (만약 가상머신일 경우 실제 PC로 사용하시기 바랍니다.)](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/debugging.png)
 
