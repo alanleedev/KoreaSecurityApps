@@ -190,7 +190,7 @@ IPinside agent는 substring으로도 매칭을 한다.
 
 내 노트북에서 msieve를 다운로드하여 하나의 CPU 코어만 사용하게끔 실행했다.
 
-```shell
+```
 $ ./msieve 108709796755756429540066787499269637…
 
 sieving in progress (press Ctrl-C to pause)
