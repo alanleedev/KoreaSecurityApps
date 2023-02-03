@@ -161,9 +161,8 @@ IPinside agent는 부분 문자열로도 매칭을 한다.
 ### udata
 
 
-마지막으로 `udata`가 있는데 “u” 는  “unique”의 약자다.
-여기에는 몇 가지 다른 아웃풋 타입이 있다. 
-다음은 타입 13이다:
+마지막으로 `udata`가 있는데 “u” 는 “unique”의 약자다.
+여기에는 몇 가지 다른 아웃풋 타입이 있으며, 아래는 타입 13이다:
 
 > [52-54-00-A7-44-B5:1:0:Intel(R) 82574L Gigabit Network Connection];[52-54-00-4A-FD-6E:0:0:Intel(R) 82574L Gigabit Network Connection #2];$[QM00001:QEMU HARDDISK:];[abcdef:QEMU HARDDISK:];[::];[::];[::];
 
