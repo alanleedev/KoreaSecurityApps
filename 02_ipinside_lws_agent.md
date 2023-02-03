@@ -150,8 +150,7 @@ IPinside agent는 부분 문자열로도 매칭을 한다.
 > www.securetrueip.co.kr:80:/vbank_01.jsc:_INSIDE_AX_H=
 
 
-앞의 2파트만 사용되는 것처럼 보인다. 
-애플리케이션은 `http://www.securetrueip.co.kr:80/androidagent.jsc`로 요청을 보낸다.
+처음 두 부분만 사용되는 것처럼 보이며, 애플리케이션은 `http://www.securetrueip.co.kr:80/androidagent.jsc`로 요청을 보낸다.
 응답 헤더의 내용 중 하나는 `RESPONSE_IP`이다.
 여러분이 맞췄듯이 이것은 웹서버가 봤을 때의 접속자 IP주소이다.
 
