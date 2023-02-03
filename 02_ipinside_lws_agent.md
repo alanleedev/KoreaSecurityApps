@@ -81,7 +81,7 @@ TouchEn nxKey와 유사하게 IPinside LWS Agent 애플리케이션도 로컬 �
 
 
 하지만 이보다 더 많은 정보들이 있다.
-예를 들면 하드 드라이브 정보 전에 나오는 `65` (문자 `e`)는 [GetProductInfo() 함수](https://learn.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo)를 호출한 결과값이다. 이것은 내가 윈도우 10 홈 에디션을 사용하고 있는 것을 나타낸다. 그 전에 `74` (문자`t`) 는 내가 사용하는 정확한 윈도우 버전 정보를 저장하고 있다.
+예를 들면 하드 드라이브 정보 전에 나오는 `65`(문자 `e`)는 [GetProductInfo() 함수](https://learn.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo)를 호출한 결과값이다. 이것은 내가 윈도우 10 홈 에디션을 사용하고 있는 것을 나타낸다. 그리고 그 전에 `74`(문자 `t`)는 내가 사용하는 정확한 윈도우 버전 정보를 저장하고 있다.
 
 #### 실행중인 프로세스에 대한 정보
 
