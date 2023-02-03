@@ -108,7 +108,7 @@ TouchEn nxKey와 유사하게 IPinside LWS Agent 애플리케이션도 로컬 �
 
 
 이것이 전부가 아니다.
-IPinside agent는 substring으로도 매칭을 한다.
+IPinside agent는 부분 문자열로도 매칭을 한다.
 그래서 `fire`라는 이름이 들어간 프로세스가 실행중인지 알려 줄 수 있다.
 
 
