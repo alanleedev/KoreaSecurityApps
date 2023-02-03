@@ -67,7 +67,7 @@ TouchEn nxKey와 유사하게 IPinside LWS Agent 애플리케이션도 로컬 �
 복호화하면 꽤 많은 양의 바이너리 데이터를 얻을 수 있다:
 
 
-![약간의 바이너리 데이터를 포함한 16진수 데이타 덤프. 다음 문자열이 눈에 띈다: QEMU Harddisk,  Gigabit Network Connection](https://palant.info/temp/aW6mA9rC3oG5cF5d/wdata.png)
+![약간의 바이너리 데이터를 포함한 16진수 데이터 덤프. 다음 문자열이 눈에 띈다: QEMU Harddisk,  Gigabit Network Connection](https://palant.info/temp/aW6mA9rC3oG5cF5d/wdata.png)
 
 
 결과물에서 보듯이, 가상 머신 내에서 IPinside를 실행중이다. 
