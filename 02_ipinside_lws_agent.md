@@ -348,12 +348,12 @@ handle_request(request);
 > 역주: 2023년 2월 초 현재 위에 있는 매뉴얼 링크에 접속을 시도하면 HTTP 404 Not Found가 뜹니다.
 > 아마도 매뉴얼 파일이 삭제된 것으로 보입니다.
 
-![특정 날짜 범위의 목록을 요청하는 웹 인터페이스 스크린샷. 테이블의 행 중 일부는 date, webip, proxyip, natip, attackip 등이다.](https://palant.info/temp/aW6mA9rC3oG5cF5d/ipinside_backend1.png)
+![특정 날짜 범위의 목록을 요청하는 웹 인터페이스 스크린샷. 테이블의 행 중 일부는 date, webip, proxyip, natip, attackip 등이다.](https://palant.info/temp/aW6mA9rC3oG5cF5d/ipinside_backend1.png)  
 IPinside 3.0 제품 설명서 화면 캡쳐
 
 이 애플리케이션은 2009년 시점에서 각 사용자의 상세 정보뿐만 아니라 IP 주소, 위치, 브라우저 및 운영체제 등의 정보를 바탕으로 한 통계 요약을 보여주는 것이 이미 가능했다.
 
-![다음 운영체제에 대한 사용자 정보 통계를 보여주는 웹 인터페이스의 스크린샷: Windows 98, Windows 2000, Windows 2003, Windows XP](https://palant.info/temp/aW6mA9rC3oG5cF5d/ipinside_backend2.png)
+![다음 운영체제에 대한 사용자 정보 통계를 보여주는 웹 인터페이스의 스크린샷: Windows 98, Windows 2000, Windows 2003, Windows XP](https://palant.info/temp/aW6mA9rC3oG5cF5d/ipinside_backend2.png)  
 IPinside 3.0 제품 설명서 화면 캡쳐
 
 여기서 목표는 사용자를 보호하는 것이 아니라, 은행을 비롯한 인터리젠의 고객사를 보호하는 것이다.
