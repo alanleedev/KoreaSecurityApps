@@ -11,6 +11,7 @@
 
 - 아래 글 번역에 참여한 이:
   - [@alanleedev](https://github.com/alanleedev)
+  - [@sh-cho](https://github.com/sh-cho)
   - [@kunggom](https://github.com/kunggom)
 
 - 원본 문서: [IPinside: Korea’s mandatory spyware](https://palant.info/2023/01/25/ipinside-koreas-mandatory-spyware/) (2023-01-25)
