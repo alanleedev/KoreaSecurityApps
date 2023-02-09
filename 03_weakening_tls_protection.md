@@ -1,6 +1,5 @@
 # TLS 보호 약화하기, 한국 스타일
 
-
 * :kr: *번역상태*: 1차 검토/수정 중 (2023-01-31)
 
 ```
@@ -13,11 +12,13 @@
 - 아래 글 번역에 참여한 이:
   - [@alanleedev](https://github.com/alanleedev)
   - [@sjkim04](https://github.com/sjkim04)
+  - [@kunggom](https://github.com/kunggom)
 
 - 원본 문서: [Weakening TLS Protection, Korean Style](https://palant.info/2023/02/06/weakening-tls-protection-south-korean-style/) (2023-02-06)
 - 번역 문서 최초 작성일: 2023-02-06 (PR을 통해 계속 업데이트 중)
 
 ---
+
 보통은 은행 웹사이트를 접속할 때 다른 웹사이트가 은행을 사칭하는 위협을 별로 걱정할 필요는 없다.
 웹 브라우저에서 진짜 은행 웹사이트에 접속했고 연결이 안전하게 암호화 되고 있는지 확인하기 때문이다.
 주소창에 보이는 자물쇠 아이콘으로 안전한지 알 수 있다.
