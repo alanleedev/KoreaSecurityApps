@@ -311,7 +311,7 @@ handle_request(request);
 이것은 코드에서 발견한 단순 한 건의 오류가 아니다.
 이 애플리케이션의 기능을 연구하면서 이외에도 여러 건의 스택 오버플로우나 버퍼의 범위를 벗어난 읽기를 발견했다. 내 (매우) 제한적인 바이너리 취약점 공격에 대한 이해를 바탕으로는 이 취약점을 사용해 원격코드 실행을 할 수는 없을 것이다. 고맙게도 StackGuard와 SafeSEH 기능이 효과적으로 동작하고 있어서 그렇다.
 그러나 좀 더 경험이 많은 사람이 이것을 우회하는 방법을 찾는다면 문제는 매우 심각해질 것이다.
-애플리케이션은 [ASLR](https://en.wikipedia.org/wiki/Address_space_layout_randomization) 이나 [DEP](https://learn.microsoft.com/en-us/windows/win32/memory/data-execution-prevention) 보호가 사용되지 않고 있다.
+애플리케이션은 [ASLR](https://en.wikipedia.org/wiki/Address_space_layout_randomization)이나 [DEP](https://learn.microsoft.com/en-us/windows/win32/memory/data-execution-prevention) 보호가 사용되지 않고 있다.
 
 
 하지만 이 취약점 중 일부는 확실히 애플리케이션을 죽일 수도 있다. 난 2개의 개념증명 (proof of concept) 웹페이지를 만들어서 여러 차례 이 사실을 확인하였다.
