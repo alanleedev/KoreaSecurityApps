@@ -314,8 +314,8 @@ handle_request(request);
 애플리케이션은 [ASLR](https://en.wikipedia.org/wiki/Address_space_layout_randomization)이나 [DEP](https://learn.microsoft.com/en-us/windows/win32/memory/data-execution-prevention) 보호가 사용되지 않고 있다.
 
 
-하지만 이 취약점 중 일부는 확실히 애플리케이션을 죽일 수도 있다. 난 2개의 개념증명 (proof of concept) 웹페이지를 만들어서 여러 차례 이 사실을 확인하였다.
-이것은 또 다른 서비스 거부 공격으로 사용될 수 있고 사용자들이 대한민국에서 온라인 뱅킹을 사용하지 못 하는 데 쓰일 수 있다.
+하지만 이 취약점 중 일부는 확실히 애플리케이션을 죽일 수도 있다. 난 2개의 개념증명(proof of concept) 웹페이지를 만들어서 여러 차례 이 사실을 확인하였다.
+이것은 또 다른 서비스 거부 공격으로 사용될 수 있고 사용자들이 대한민국에서 온라인 뱅킹을 사용하는 것을 막는 데에도 쓰일 수 있다.
 
 ## 언제 수정될까?
 
