@@ -15,6 +15,9 @@
 
 이 시리즈의 도입글 [South Korea’s online security dead end](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/)에 대한 김우진 님의 번역글은 [여기](https://www.woojinkim.org/wiki/spaces/me/pages/733085820)서 볼 수 있다.
 
+
+또한 The Readable이란 매체에서 블라드미르 팔란트를 서면 인터뷰한 내용의 번역도 있다; [외부인의 눈: 한국인을 온라인 상에서 지키기 위해 묻는 진짜 질문](https://github.com/alanleedev/KoreaSecurityApps/blob/main/a_thereadable_article.md)
+
 ---
 
 # 번역 및 내용 수정에 도움을 주신 분들: 
