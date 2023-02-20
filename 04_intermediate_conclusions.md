@@ -1,5 +1,24 @@
 # 한국의 금융보안: 중간 결론
 
+
+* :kr: *번역상태*: 1차 검토/수정 중
+
+```
+이 글은 저자의 허락을 받아 영문으로 된 원문을 한국어로 번역한 글입니다.
+번역 오류 및 잘못된 내용에 대한 수정은 [참여방법](https://github.com/alanleedev/KoreaSecurityApps/blob/main/CONTRIBUTION.md)을 읽은 후 Pull Request를 부탁드려요.
+```
+
+## 번역 관련 정보
+
+- 아래 글 번역에 참여한 이:
+  - [@alanleedev](https://github.com/alanleedev)
+  - [@sh-cho](https://github.com/sh-cho)
+  - [@sjkim04](https://github.com/sjkim04)
+
+- 원본 문서: [South Korea’s banking security: Intermediate conclusions](https://palant.info/2023/02/20/south-koreas-banking-security-intermediate-conclusions/) (2023-02-20)
+- 번역 문서 최초 작성일: 2023-02-20 (PR을 통해 계속 업데이트 중)
+
+---
  
 얼마 전에 [한국의 특이한 온라인 보안에 대한 접근에 대해 첫 글](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/)을 썼다.
 거기에 이어서 [특정](https://palant.info/2023/01/09/touchen-nxkey-the-keylogging-anti-keylogger-solution/) [애플리케이션](https://palant.info/2023/01/25/ipinside-koreas-mandatory-spyware/) 두 개를 분석한 글을 썼다.
