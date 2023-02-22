@@ -85,7 +85,7 @@
 하지만 한국에서는 여전히 많이 사용된다.
 
 다시 한 번 이야기한다.
-컴퓨터의 보안이 뚫리면 더이상 조취를 취할 수 있는게 없다.
+컴퓨터의 보안이 뚫리면 더이상 조치를 취할 수 있는게 없다.
 유일한 해결책은 [다중인증(Multi-Factor Authentication; MFA)](https://en.wikipedia.org/wiki/Multi-factor_authentication)이다.
 온라인 뱅킹 환경에서는 세부 거래내역은 독립된 그리고 보안이 뚫리지 않은 디바이스에서 확인해야 한다.
 
