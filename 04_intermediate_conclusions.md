@@ -14,6 +14,7 @@
   - [@alanleedev](https://github.com/alanleedev)
   - [@sh-cho](https://github.com/sh-cho)
   - [@sjkim04](https://github.com/sjkim04)
+  - [@kunggom](https://github.com/kunggom)
 
 - 원본 문서: [South Korea’s banking security: Intermediate conclusions](https://palant.info/2023/02/20/south-koreas-banking-security-intermediate-conclusions/) (2023-02-20)
 - 번역 문서 최초 작성일: 2023-02-20 (PR을 통해 계속 업데이트 중)
