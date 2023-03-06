@@ -62,7 +62,7 @@
     -   [시각적 단서 제거](#시각적-단서-제거)
 -   [정보 유출: 로컬 애플리케이션](#정보-유출-로컬-애플리케이션)
 -   [웹서버 취약점](#웹서버-취약점)
-    -   [HTTP 응답 분할 (Response Splitting)](#http-응답-분할-reponse-splitting)
+    -   [HTTP 응답 분할 (Response Splitting)](#http-응답-분할-response-splitting)
     -   [서비스 작업자를 통한 영구 XSS](#서비스-작업자를-통한-영구-XSS)
 -   [문제 신고하기](#문제-신고하기)
 -   [무엇이 고쳐졌나](#무엇이-고쳐졌나)
