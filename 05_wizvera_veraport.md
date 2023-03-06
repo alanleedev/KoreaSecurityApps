@@ -13,7 +13,7 @@
 - 아래 글 번역에 참여한 이:
   - [@alanleedev](https://github.com/alanleedev)
 
-- 원본 문서: [Weakening TLS Protection, Korean Style](https://palant.info/2023/03/06/veraport-inside-koreas-dysfunctional-application-management/) (2023-03-06)
+- 원본 문서: [Veraport: Inside Korea’s dysfunctional application management](https://palant.info/2023/03/06/veraport-inside-koreas-dysfunctional-application-management/) (2023-03-06)
 - 번역 문서 최초 작성일: 2023-03-06
 
 ---
@@ -56,13 +56,13 @@
     -   [너무 넓게 설정된 allowedDomains](#너무-넓게-설정된-allowedDomains)
     -   [서명키는 누가 가지고 있나?](#서명키는-누가-가지고-있나)
     -   [인증기관](#인증기관)
--   [구멍을 결합한 익스플로잇 (exploit)](#구멍을-결합한-익스플로잇-(exploit))
+-   [구멍을 결합한 익스플로잇 (exploit)](#구멍을-결합한-익스플로잇-exploit)
     -   [악성 웹사이트에서 기존 정책 파일 사용](#악성-웹사이트에서-기존-정책-파일-사용)
     -   [악성 바이너리의 실행](#악성-바이너리의-실행)
     -   [시각적 단서 제거](#시각적-단서-제거)
--   [정보 유출: 로컬 애플리케이션](#정보-유출-로컬 애플리케이션)
+-   [정보 유출: 로컬 애플리케이션](#정보-유출-로컬-애플리케이션)
 -   [웹서버 취약점](#웹서버-취약점)
-    -   [HTTP 응답 분할 (Response Splitting)](#HTTP-응답-분할-(Response-Splitting))
+    -   [HTTP 응답 분할 (Response Splitting)](#http-응답-분할-reponse-splitting)
     -   [서비스 작업자를 통한 영구 XSS](#서비스-작업자를-통한-영구-XSS)
 -   [문제 신고하기](#문제-신고하기)
 -   [무엇이 고쳐졌나](#무엇이-고쳐졌나)
