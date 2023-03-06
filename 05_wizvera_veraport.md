@@ -36,7 +36,7 @@
 
 
 만약 이것의 권한이 막강하다는 생각이 든다면 실제 그렇기 때문이다.
-베라포트는 이미 ]북한 해커들의 공격에 사용되었다](https://threatpost.com/hacked-software-south-korea-supply-chain-attack/161257/)고 뉴스에 나온 적이 있다.
+베라포트는 이미 [북한 해커들의 공격에 사용되었다](https://threatpost.com/hacked-software-south-korea-supply-chain-attack/161257/)고 뉴스에 나온 적이 있다.
 
 그 당시에는 모두가 공격에 뚫린 웹서버에 원인을 돌렸다.
 난 베라포트가 어떻게 동작하는지 좀 더 자세히 살펴본 후 이런 결론을 내렸다: 여기서 사용하는 접근방법은 본질적으로 위험하다.
