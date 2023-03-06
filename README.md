@@ -12,7 +12,7 @@
 > - 2023-01-25: [IPinside: 대한민국의 필수 설치 스파이웨어](https://github.com/alanleedev/KoreaSecurityApps/blob/main/02_ipinside_lws_agent.md)
 > - 2023-02-06: [TLS 보호 약화하기, 한국 스타일](https://github.com/alanleedev/KoreaSecurityApps/blob/main/03_weakening_tls_protection.md)
 > - 2023-02-20: [한국의 금융보안: 중간 결론](https://github.com/alanleedev/KoreaSecurityApps/blob/main/04_intermediate_conclusions.md)
-> - 2023-03-06: 
+> - 2023-03-06: [베라포트: 제대로 작동하지 않는 한국의 애플리케이션 관리 소프트웨어어](https://github.com/alanleedev/KoreaSecurityApps/blob/main/05_wizvera_veraport.md)
 
 이 시리즈의 도입글 [South Korea’s online security dead end](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/)에 대한 김우진 님의 번역글은 [여기](https://www.woojinkim.org/wiki/spaces/me/pages/733085820)서 볼 수 있다.
 
