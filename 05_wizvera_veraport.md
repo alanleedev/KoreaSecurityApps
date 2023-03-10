@@ -518,13 +518,13 @@ alert(document.domain)//hi({"res": 1});
 
 ## 무엇이 고쳐졌나
 
-I did not receive any communication from Wizvera, but I accidentally stumbled upon their download server. And this server had a text file with a full change history. That’s how I learned that Veraport 3.8.6.4 is out:
+나는 Wizvera로부터 어떠한 연락도 받지 못했지만 우연히 Wizvera의 다운로드 서버를 발견했다. 그리고 이 서버에는 전체 변경 내역이 있는 텍스트 파일이 있었다. 이 파일을 통해 Veraport 3.8.6.4가 출시되었음을 알게 되었다:
 
 ```
 2864,3864 (2023-01-26) 취약점 수정적용
 ```
 
-Veraport 3.8.6.4를 테스트 했을 때 일부 문제를 해결했지만 다른 문제는 해결하지 못했다.
+Veraport 3.8.6.4를 테스트 해 보니 일부 문제는 해결되었지만 다른 문제는 해결하지 못했다.
 특히, 악성 애플리케이션 설치는 여전히 최소한의 변경으로 작동했다 - HTTPS 연결이 아닌 HTTP를 통해 정책을 다운로드하기만 하면 된다.
 
 그래서 2월 22일에 KrCERT에 내 의견을 위즈베라에 전달할 것을 요청하는 이메일을 보냈고, 그들은 같은 날 전달해 주었다.
@@ -535,14 +535,14 @@ Veraport 3.8.6.4를 테스트 했을 때 일부 문제를 해결했지만 다른
 또한 Veraport 3.8.6.5는 HTTP 다운로드를 HTTPS로 자동 업그레이드를 통해 신뢰할 수 없는 네트워크가 더 이상 설치를 조작할 수 없다.
 
 창 크기는 더 이상 배경 이미지에 의해 결정되지 않으므로 애플리케이션 창을 더 이상 이런 식으로 숨길 수 없다. 
-Veraport 3.8.6.5를 사용하면 웹사이트도 더 이상 애플리케이션에 대한 설명을 변경할 수 없습니다.
+Veraport 3.8.6.5를 사용하면 웹사이트도 더 이상 애플리케이션에 대한 설명을 변경할 수 없다.
 
-리디렉션 엔드포인트는 베라포트의 로컬 서버에서 제거되었으며 JSONP 엔드포인트는 이제 콜백 이름을 허용된 문자 집합으로 제한합니다.
+리디렉션 엔드포인트는 베라포트의 로컬 서버에서 제거되었으며 JSONP 엔드포인트는 이제 콜백 이름을 허용된 문자 집합으로 제한한다.
 
 OpenSSL은  베라포트 3.8.6.4에서 버전 1.0.2u로, Veraport 3.8.6.5에서 버전 1.1.1t로 업데이트되었다.
 후자는 실제로 최신버전이며 알려진 취약점이 없다.
 
-changelog에 따르면 JsonCpp 0.10.7이 현재 사용되고 있다.
+변경 내역에 따르면 JsonCpp 0.10.7이 현재 사용되고 있다.
 이 버전은 2016년에 출시되었지만 애플리케이션이 Visual Studio 2008로 컴파일되는 한 최신 버전을 사용하는 것은 불가능하다.
 
 베라포트 3.8.6.5는 [TLS 보안에 대한 내 블로그 게시물](https://palant.info/2023/02/06/weakening-tls-protection-south-korean-style/)에 언급된 문제도 해결했다.
