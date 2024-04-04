@@ -1,6 +1,10 @@
 # KoreaSecurityApps
 
-이 저장소는 Adblock Plus로 유명한 독일의 개발자 [블라디미르 팔란트(Wladimir Palant)](https://palant.info/about/)가 자신의 블로그에 공개한, 한국 금융권에서 사용자에게 설치를 강요하는 여러 “보안 소프트웨어”의 각종 보안 취약점에 대한 내용을 번역한 모음집이다.
+**Disclaimer:** This repository contains Korean translations of series of blog posts written by [Wladimir Palant](https://palant.info/about/) (well known as the developer of Adblock Plus). These are unofficial translations done by several volunteers. The effort was started to bring more awareness of issues to average Koreans who may not be well versed in English. The translations are in various different stages but are considered final as is. We, the volunteers, tried to be faiththful in translating the original text but the views expressed in the text is of the original author and does not express the views of the volunteers who participated in the translation nor any of the organizations they are associated with.
+
+------
+
+이 저장소는 Adblock Plus로 유명한 독일의 개발자 [블라디미르 팔란트(Wladimir Palant)](https://palant.info/about/)가 자신의 블로그에 공개한, 한국 금융권에서 사용자에게 설치를 강요하는 여러 “보안 소프트웨어”의 각종 보안 취약점에 대한 내용을 번역한 모음집이다. 번역의 상태가 완료로 표시가 안되어 있어도 현재 추가 작업이 없기 때문에 완료된 상태로 간주할 수 있다.
 
 원저자는 첫번째 글([South Korea's Online Security Dead End](https://palant.info/2023/01/02/south-koreas-online-security-dead-end/)) 말미에서 앞으로 다음과 같은 내용을 더 공개하기로 하였다.
 
